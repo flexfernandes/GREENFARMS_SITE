@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Green Farms | Engenharia Industrial Premium</title>
-  <meta name="description" content="Green Farms entrega soluções industriais sob medida para agro, farmacêutico, alimentício e biotecnológico. Engenharia de precisão, bioprocessos e automação industrial premium.">
+  <meta name="description" content="Green Farms oferece soluções industriais sob medida para agro, farmacêutico, alimentício e biotecnológico. Engenharia de precisão, automação e bioprocessos.">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -13,10 +13,11 @@
       <div class="container header-inner">
         <a class="brand" href="index.html">
           <img src="images/company_logo.png" alt="Green Farms" class="brand-mark">
-          <span class="brand-text">GREEN FARMS</span>
+          <div class="brand-details">
+            <strong class="brand-name">GREEN FARMS</strong>
+            <span class="brand-subtitle">Engenharia & Biotecnologia Industrial</span>
+          </div>
         </a>
-
-        <button class="nav-toggle" aria-label="Abrir navegação" data-toggle="nav"></button>
 
         <nav class="site-nav" data-nav>
           <a data-i18n="nav.home" href="index.html">Início</a>
@@ -24,103 +25,122 @@
           <a data-i18n="nav.products" href="produtos.html">Produtos</a>
           <a data-i18n="nav.engineering" href="engenharia.html">Engenharia</a>
           <a data-i18n="nav.contact" href="contato.html">Contato</a>
-          <a data-i18n="nav.register" href="cadastro.html" class="button outline">Cadastro</a>
         </nav>
 
-        <div class="language-switcher" aria-label="Mudar idioma">
-          <button type="button" data-lang="pt">PT</button>
-          <button type="button" data-lang="en">EN</button>
-          <button type="button" data-lang="es">ES</button>
+        <div class="header-actions">
+          <div class="language-switcher" aria-label="Mudar idioma">
+            <button type="button" data-lang="pt">PT</button>
+            <button type="button" data-lang="en">EN</button>
+            <button type="button" data-lang="es">ES</button>
+          </div>
+          <a href="cadastro.html" class="button outline" data-i18n="nav.register">Cadastro</a>
+          <button class="nav-toggle" aria-label="Abrir navegação" data-toggle="nav"></button>
         </div>
       </div>
     </header>
 
     <main>
-      <section class="hero hero-split">
-        <div class="container hero-panel">
+      <section class="hero section-large">
+        <div class="container hero-grid">
           <div class="hero-copy">
-            <span class="eyebrow" data-i18n="hero.badge">ENGENHARIA INDUSTRIAL AVANÇADA</span>
-            <h1 data-i18n="hero.title">Green Farms desenvolve soluções industriais sob medida para biotecnologia, farmacêutica e agro.</h1>
-            <p data-i18n="hero.subtitle">Pesquisa aplicada, engenharia de precisão e automação premium para plantas piloto, bioprocessos e equipamentos especiais em inox.</p>
+            <span class="eyebrow">Engenharia | Automação | Pesquisa</span>
+            <h1>Projetos industriais sob medida para agro, farmacêutico, alimentício e biotech.</h1>
+            <p>Green Farms entrega soluções técnicas premium em peças inox, equipamentos especiais e processos integrados para operações industriais de alto desempenho.</p>
             <div class="hero-actions">
-              <a class="button primary" data-i18n="hero.ctaContact" href="contato.html">Contato Premium</a>
-              <a class="button secondary" data-i18n="hero.ctaWhatsApp" href="https://wa.me/5516981349898?text=Ol%C3%A1%2C%20Green%20Farms%2C%20tenho%20interesse%20em%20uma%20solu%C3%A7%C3%A3o%20industrial." target="_blank" rel="noopener noreferrer">WhatsApp</a>
+              <a class="button primary" href="contato.html" data-i18n="hero.contact">Solicitar proposta</a>
+              <a class="button secondary" href="https://wa.me/5516981349898?text=Ol%C3%A1%2C%20Green%20Farms.%20Preciso%20de%20uma%20solu%C3%A7%C3%A3o%20industrial." target="_blank" rel="noopener noreferrer" data-i18n="hero.whatsapp">WhatsApp</a>
+            </div>
+            <div class="hero-pillars">
+              <span>Inovação industrial</span>
+              <span>Precisão mecânica</span>
+              <span>Desenvolvimento estratégico</span>
             </div>
           </div>
 
-          <div class="hero-media glass-card">
-            <img src="images/Biorreatores_Projeto_greenfarms.jpg" alt="Projeto industrial Green Farms" loading="lazy">
-            <div class="hero-media-tag" data-i18n="hero.focus">Precision, bioprocess and custom engineering</div>
+          <div class="hero-media">
+            <div class="visual-card">
+              <img src="images/Biorreatores_Projeto_greenfarms.jpg" alt="Projeto industrial Green Farms" loading="lazy">
+              <div class="visual-label">Soluções integradas de engenharia e bioprocessos</div>
+            </div>
           </div>
         </div>
       </section>
 
-      <section class="section-panel section-featured">
+      <section class="section section-split">
         <div class="container section-grid">
-          <div>
-            <p class="section-label" data-i18n="transform.label">Transformando necessidades em soluções sob medida</p>
-            <h2 data-i18n="transform.title">Projetos industriais personalizados com alto padrão técnico</h2>
-            <p data-i18n="transform.text">A GREEN FARMS entrega engenharia aplicada para processos CIP, peças especiais em inox, plantas piloto, bioprocessos e sistemas integrados com controle de qualidade industrial.</p>
-          </div>
-
+          <article class="feature-card">
+            <h2>Transformamos desafios industriais em soluções sob medida.</h2>
+            <p>Atuamos em engenharia de precisão, plantas piloto, bioprocessos, peças em inox e sistemas integrados para clientes exigentes.</p>
+          </article>
           <div class="feature-list">
-            <article class="feature-card">
-              <h3 data-i18n="transform.item1.title">Peças especiais em inox</h3>
-              <p data-i18n="transform.item1.text">Componentes de alta resistência com fidelidade dimensional e acabamento premium para ambientes críticos.</p>
+            <article>
+              <strong>Peças especiais em inox</strong>
+              <p>Componentes feitos para ambientes críticos com acabamento premium e tolerâncias rígidas.</p>
             </article>
-            <article class="feature-card">
-              <h3 data-i18n="transform.item2.title">Equipamentos personalizados</h3>
-              <p data-i18n="transform.item2.text">Soluções sob medida para processos industriais complexos, com engenharia de precisão e integração total.</p>
+            <article>
+              <strong>Plantas piloto</strong>
+              <p>Desenvolvimento de provas de conceito com replicabilidade industrial e controle preciso.</p>
             </article>
-            <article class="feature-card">
-              <h3 data-i18n="transform.item3.title">Bioprocessos inteligentes</h3>
-              <p data-i18n="transform.item3.text">Desenvolvimento de plantas piloto e automação adaptada para operações biofarmacêuticas e alimentícias.</p>
-            </article>
-            <article class="feature-card">
-              <h3 data-i18n="transform.item4.title">Sistemas integrados</h3>
-              <p data-i18n="transform.item4.text">Integração de equipamentos, controles e desenvolvimento estratégico para robustez industrial.</p>
+            <article>
+              <strong>Automação industrial</strong>
+              <p>Projetos integrados para monitoramento, controle e eficiência operacional.</p>
             </article>
           </div>
         </div>
       </section>
 
-      <section class="section-panel section-statements">
-        <div class="container statements-grid">
-          <article class="statement-card">
-            <span data-i18n="statement.one">Inovação contínua</span>
-            <p data-i18n="statement.oneText">Projetos que combinam engenharia e pesquisa para avanços industriais disruptivos.</p>
-          </article>
-          <article class="statement-card">
-            <span data-i18n="statement.two">Engenharia de precisão</span>
-            <p data-i18n="statement.twoText">Controle dimensional rigoroso e componentes premium para processos sensíveis.</p>
-          </article>
-          <article class="statement-card">
-            <span data-i18n="statement.three">Soluções sob medida</span>
-            <p data-i18n="statement.threeText">Cada projeto nasce da necessidade técnica e evolui com confiabilidade e alto desempenho.</p>
-          </article>
+      <section class="section section-cards">
+        <div class="container">
+          <div class="section-header">
+            <p class="section-label">Diferenciais Green Farms</p>
+            <h2>Uma arquitetura técnica premium para processos industriais modernos.</h2>
+          </div>
+          <div class="cards-grid">
+            <article class="mini-card">
+              <span>Pesquisa aplicada</span>
+              <p>Decisões técnicas baseadas em dados e engenharia avançada.</p>
+            </article>
+            <article class="mini-card">
+              <span>Confiabilidade</span>
+              <p>Execução robusta para operações críticas e ciclos de produção exigentes.</p>
+            </article>
+            <article class="mini-card">
+              <span>Projetos customizados</span>
+              <p>Soluções adaptadas a desafios reais de plantas industriais.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section-cta">
+        <div class="container cta-card">
+          <div>
+            <p class="section-label">Contato estratégico</p>
+            <h2>Vamos construir sua solução industrial de alto padrão.</h2>
+            <p>Converse com nossa equipe técnica e receba uma proposta alinhada ao seu desafio.</p>
+          </div>
+          <a class="button primary" href="contato.html">Agendar conversa</a>
         </div>
       </section>
     </main>
 
-    <footer class="site-footer footer-split">
+    <footer class="site-footer">
       <div class="container footer-grid">
         <div>
-          <span class="footer-label" data-i18n="footer.trust">Green Farms | Engenharia e biotecnologia industrial</span>
-          <p data-i18n="footer.description">Presença premium no agro, farmacêutico, alimentício e biotecnológico com soluções industriais e equipamentos especiais.</p>
+          <strong>GREEN FARMS</strong>
+          <p>Engenharia industrial premium para agro, farmacêutico, alimentício e biotecnológico.</p>
         </div>
-        <div class="footer-links">
-          <a href="contato.html" data-i18n="footer.contact">Contato</a>
-          <a href="sobre.html" data-i18n="footer.about">Sobre</a>
-          <a href="produtos.html" data-i18n="footer.products">Produtos</a>
-        </div>
+        <nav class="footer-nav">
+          <a href="sobre.html">Sobre</a>
+          <a href="produtos.html">Produtos</a>
+          <a href="engenharia.html">Engenharia</a>
+          <a href="contato.html">Contato</a>
+        </nav>
       </div>
     </footer>
   </div>
 
-  <a class="whatsapp-float" href="https://wa.me/5516981349898?text=Ol%C3%A1%2C%20Green%20Farms%2C%20gostaria%20de%20falar%20sobre%20uma%20solu%C3%A7%C3%A3o%20industrial." target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
-    <span>WhatsApp</span>
-  </a>
-
+  <a class="whatsapp-float" href="https://wa.me/5516981349898?text=Ol%C3%A1%2C%20Green%20Farms.%20Preciso%20de%20uma%20solu%C3%A7%C3%A3o%20industrial." target="_blank" rel="noopener noreferrer">WhatsApp</a>
   <script src="app.js"></script>
 </body>
 </html>

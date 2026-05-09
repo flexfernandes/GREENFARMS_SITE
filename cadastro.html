@@ -13,75 +13,81 @@
       <div class="container header-inner">
         <a class="brand" href="index.html">
           <img src="images/company_logo.png" alt="Green Farms" class="brand-mark">
-          <span class="brand-text">GREEN FARMS</span>
+          <div class="brand-details">
+            <strong class="brand-name">GREEN FARMS</strong>
+            <span class="brand-subtitle">Engenharia & Biotecnologia Industrial</span>
+          </div>
         </a>
-        <button class="nav-toggle" aria-label="Abrir navegação" data-toggle="nav"></button>
+
         <nav class="site-nav" data-nav>
           <a data-i18n="nav.home" href="index.html">Início</a>
           <a data-i18n="nav.about" href="sobre.html">Sobre</a>
           <a data-i18n="nav.products" href="produtos.html">Produtos</a>
           <a data-i18n="nav.engineering" href="engenharia.html">Engenharia</a>
           <a data-i18n="nav.contact" href="contato.html">Contato</a>
-          <a data-i18n="nav.register" href="cadastro.html" class="button outline">Cadastro</a>
         </nav>
-        <div class="language-switcher" aria-label="Mudar idioma">
-          <button type="button" data-lang="pt">PT</button>
-          <button type="button" data-lang="en">EN</button>
-          <button type="button" data-lang="es">ES</button>
+
+        <div class="header-actions">
+          <div class="language-switcher" aria-label="Mudar idioma">
+            <button type="button" data-lang="pt">PT</button>
+            <button type="button" data-lang="en">EN</button>
+            <button type="button" data-lang="es">ES</button>
+          </div>
+          <a href="cadastro.html" class="button outline" data-i18n="nav.register">Cadastro</a>
+          <button class="nav-toggle" aria-label="Abrir navegação" data-toggle="nav"></button>
         </div>
       </div>
     </header>
 
     <main>
-      <section class="hero">
-        <div class="container">
-          <div class="hero-copy">
-            <span class="eyebrow" data-i18n="register.formTitle">Cadastro de cliente</span>
-            <h1 data-i18n="register.heroTitle">Cadastre sua empresa para projetos estratégicos</h1>
-            <p data-i18n="register.heroText">Acesse nossa estrutura de P&D industrial, desenvolvimento de bioprocessos e engenharia de precisão.</p>
-          </div>
+      <section class="hero section-medium">
+        <div class="container hero-copy">
+          <span class="eyebrow" data-i18n="register.formTitle">Cadastro de cliente</span>
+          <h1 data-i18n="register.heroTitle">Registre sua empresa para projetos industriais estratégicos.</h1>
+          <p data-i18n="register.heroText">Tenha acesso ao nosso know-how em P&D industrial, bioprocessos e engenharia de precisão.</p>
         </div>
       </section>
 
-      <section class="section-panel">
+      <section class="section section-panel">
         <div class="container">
           <div class="form-card">
             <span class="section-label" data-i18n="register.formTitle">Cadastro de cliente</span>
             <p data-i18n="register.formIntro">Forneça os dados iniciais para agendarmos uma avaliação técnica dedicada.</p>
-            <form>
+            <form data-endpoint="contact">
               <div class="form-grid">
-                <input type="text" placeholder="Nome da empresa" data-i18n="register.company">
-                <input type="text" placeholder="Segmento principal" data-i18n="register.industry">
-                <input type="text" placeholder="Desafio atual" data-i18n="register.challenge">
-                <input type="text" placeholder="Requisitos do projeto" data-i18n="register.requirements">
-                <input type="email" placeholder="E-mail profissional" data-i18n="contact.email">
-                <input type="tel" placeholder="Telefone / WhatsApp" data-i18n="contact.phone">
-                <textarea rows="5" placeholder="Notas adicionais" data-i18n="register.message"></textarea>
+                <input name="company" type="text" placeholder="Nome da empresa" data-i18n="register.company" required>
+                <input name="industry" type="text" placeholder="Segmento principal" data-i18n="register.industry" required>
+                <input name="challenge" type="text" placeholder="Desafio atual" data-i18n="register.challenge" required>
+                <input name="requirements" type="text" placeholder="Requisitos do projeto" data-i18n="register.requirements" required>
+                <input name="email" type="email" placeholder="E-mail profissional" data-i18n="contact.email" required>
+                <input name="phone" type="tel" placeholder="Telefone / WhatsApp" data-i18n="contact.phone" required>
+                <textarea name="message" rows="5" placeholder="Notas adicionais" data-i18n="register.message"></textarea>
               </div>
               <button type="submit" class="button primary" data-i18n="register.submit">Enviar cadastro</button>
+              <p class="form-status" aria-live="polite"></p>
             </form>
           </div>
         </div>
       </section>
     </main>
 
-    <footer class="site-footer footer-split">
+    <footer class="site-footer">
       <div class="container footer-grid">
         <div>
-          <span class="footer-label" data-i18n="footer.trust">Green Farms | Engenharia e biotecnologia industrial</span>
-          <p data-i18n="footer.description">Presença premium no agro, farmacêutico, alimentício e biotecnológico com soluções industriais sob medida.</p>
+          <strong>GREEN FARMS</strong>
+          <p>Engenharia industrial premium para agro, farmacêutico, alimentício e biotecnológico.</p>
         </div>
-        <div class="footer-links">
-          <a href="sobre.html" data-i18n="footer.about">Sobre</a>
-          <a href="produtos.html" data-i18n="footer.products">Produtos</a>
-          <a href="contato.html" data-i18n="footer.contact">Contato</a>
-        </div>
+        <nav class="footer-nav">
+          <a href="sobre.html">Sobre</a>
+          <a href="produtos.html">Produtos</a>
+          <a href="contato.html">Contato</a>
+          <a href="index.html">Início</a>
+        </nav>
       </div>
     </footer>
   </div>
-  <a class="whatsapp-float" href="https://wa.me/5516981349898?text=Ol%C3%A1%2C%20Green%20Farms%2C%20gostaria%20de%20falar%20sobre%20uma%20solu%C3%A7%C3%A3o%20industrial." target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
-    <span>WhatsApp</span>
-  </a>
+
+  <a class="whatsapp-float" href="https://wa.me/5516981349898?text=Ol%C3%A1%2C%20Green%20Farms.%20Preciso%20de%20uma%20solu%C3%A7%C3%A3o%20industrial." target="_blank" rel="noopener noreferrer">WhatsApp</a>
   <script src="app.js"></script>
 </body>
 </html>

@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Green Farms | Engenharia & Soluções</title>
-  <meta name="description" content="Descubra as soluções de engenharia e automação da Green Farms para projetos industriais sofisticados e sob medida.">
+  <title>Green Farms | Engenharia</title>
+  <meta name="description" content="Conheça as soluções de engenharia e automação Green Farms para projetos industriais sob medida e de alto padrão.">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -13,90 +13,123 @@
       <div class="container header-inner">
         <a class="brand" href="index.html">
           <img src="images/company_logo.png" alt="Green Farms" class="brand-mark">
-          <span class="brand-text">GREEN FARMS</span>
+          <div class="brand-details">
+            <strong class="brand-name">GREEN FARMS</strong>
+            <span class="brand-subtitle">Engenharia & Biotecnologia Industrial</span>
+          </div>
         </a>
-        <button class="nav-toggle" aria-label="Abrir navegação" data-toggle="nav"></button>
+
         <nav class="site-nav" data-nav>
           <a data-i18n="nav.home" href="index.html">Início</a>
           <a data-i18n="nav.about" href="sobre.html">Sobre</a>
           <a data-i18n="nav.products" href="produtos.html">Produtos</a>
           <a data-i18n="nav.engineering" href="engenharia.html">Engenharia</a>
           <a data-i18n="nav.contact" href="contato.html">Contato</a>
-          <a data-i18n="nav.register" href="cadastro.html" class="button outline">Cadastro</a>
         </nav>
-        <div class="language-switcher" aria-label="Mudar idioma">
-          <button type="button" data-lang="pt">PT</button>
-          <button type="button" data-lang="en">EN</button>
-          <button type="button" data-lang="es">ES</button>
+
+        <div class="header-actions">
+          <div class="language-switcher" aria-label="Mudar idioma">
+            <button type="button" data-lang="pt">PT</button>
+            <button type="button" data-lang="en">EN</button>
+            <button type="button" data-lang="es">ES</button>
+          </div>
+          <a href="cadastro.html" class="button outline" data-i18n="nav.register">Cadastro</a>
+          <button class="nav-toggle" aria-label="Abrir navegação" data-toggle="nav"></button>
         </div>
       </div>
     </header>
 
     <main>
-      <section class="hero hero-split">
-        <div class="container hero-panel">
+      <section class="hero section-large">
+        <div class="container hero-grid">
           <div class="hero-copy">
-            <span class="eyebrow" data-i18n="engineering.section1.title">Automação industrial</span>
-            <h1 data-i18n="engineering.heroTitle">Engenharia de processos para projetos industriais complexos</h1>
-            <p data-i18n="engineering.heroText">Desenvolvemos soluções tecnológicas para automação, melhoria de processos e plantas piloto com segurança e robustez.</p>
+            <span class="eyebrow">Engenharia de Processos</span>
+            <h1>Projetos industriais de automação, bioprocessos e melhorias de processo.</h1>
+            <p>Green Farms oferece desenvolvimento sob medida para equipamentos, componentes e plantas industriais que exigem desempenho rigoroso e confiável.</p>
           </div>
-          <div class="glass-card">
-            <img src="images/Biorreatores_Projeto_greenfarms.jpg" alt="Soluções Green Farms" loading="lazy">
+          <div class="hero-media">
+            <div class="visual-card">
+              <img src="images/Biorreatores_Projeto_greenfarms.jpg" alt="Soluções Green Farms" loading="lazy">
+              <div class="visual-label">Soluções robustas para plantas piloto e produção industrial.</div>
+            </div>
           </div>
         </div>
       </section>
 
-      <section class="section-panel section-featured">
+      <section class="section section-split">
         <div class="container section-grid">
-          <div>
-            <p class="section-label" data-i18n="engineering.section2.title">Desenvolvimento sob medida</p>
-            <h2 data-i18n="engineering.section2.title">Soluções de engenharia para desafios técnicos exigentes</h2>
-            <p data-i18n="engineering.section2.text">Equipamentos e componentes customizados para atender o desafio técnico de cada cliente, com desempenho confiável e escopo sob medida.</p>
-          </div>
+          <article class="feature-card">
+            <h2>Desenvolvimento sob medida para cada desafio industrial.</h2>
+            <p>Planejamos e entregamos projetos que combinam engenharia mecânica, elétrica e de automação em uma solução única e integrada.</p>
+          </article>
           <div class="feature-list">
-            <article class="feature-card">
-              <h3 data-i18n="engineering.section1.title">Soluções de automação industrial</h3>
-              <p data-i18n="engineering.section1.text">Projetos com controle integrado, monitoramento em tempo real e desempenho confiável para ambientes críticos.</p>
+            <article>
+              <strong>Automação industrial</strong>
+              <p>Implementação de controles, dados e operação inteligente para ambientes críticos.</p>
             </article>
-            <article class="feature-card">
-              <h3 data-i18n="engineering.section3.title">Excelência em materiais premium</h3>
-              <p data-i18n="engineering.section3.text">Aço inox, superfícies técnicas e acabamentos que respeitam normas sanitárias e industriais.</p>
+            <article>
+              <strong>Materiais premium</strong>
+              <p>Aço inox e acabamentos técnicos adequados a normas sanitárias e de processo.</p>
             </article>
-            <article class="feature-card">
-              <h3>Integração múltipla</h3>
-              <p>Arquitetura de sistemas que conecta engenharia mecânica, elétrica e controles em uma solução única.</p>
+            <article>
+              <strong>Integração total</strong>
+              <p>Conexão entre equipamentos, instrumentação e fluxos de produção.</p>
             </article>
           </div>
         </div>
       </section>
 
-      <section class="section-panel">
+      <section class="section section-cards">
         <div class="container">
-          <div class="info-card">
-            <h3>Desenvolvimento estratégico</h3>
-            <p>Realizamos análise técnica detalhada, prototipagem e validação para garantir que cada projeto entregue robustez, confiabilidade e excelência técnica.</p>
+          <div class="section-header">
+            <p class="section-label">Foco técnico</p>
+            <h2>Metodologia estruturada para resultados previsíveis e escaláveis.</h2>
           </div>
+          <div class="cards-grid">
+            <article class="mini-card">
+              <span>Análise técnica</span>
+              <p>Diagnóstico completo antes de cada projeto.</p>
+            </article>
+            <article class="mini-card">
+              <span>Prototipagem</span>
+              <p>Validação de soluções antes da escala industrial.</p>
+            </article>
+            <article class="mini-card">
+              <span>Validação</span>
+              <p>Testes e ajustes para garantir robustez e conformidade.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section-cta">
+        <div class="container cta-card">
+          <div>
+            <p class="section-label">Engenharia premium</p>
+            <h2>Traga sua demanda técnica para nosso time de desenvolvimento.</h2>
+          </div>
+          <a class="button primary" href="contato.html">Solicitar análise</a>
         </div>
       </section>
     </main>
 
-    <footer class="site-footer footer-split">
+    <footer class="site-footer">
       <div class="container footer-grid">
         <div>
-          <span class="footer-label" data-i18n="footer.trust">Green Farms | Engenharia e biotecnologia industrial</span>
-          <p data-i18n="footer.description">Presença premium no agro, farmacêutico, alimentício e biotecnológico com soluções industriais sob medida.</p>
+          <strong>GREEN FARMS</strong>
+          <p>Engenharia industrial premium para agro, farmacêutico, alimentício e biotecnológico.</p>
         </div>
-        <div class="footer-links">
-          <a href="contato.html" data-i18n="footer.contact">Contato</a>
-          <a href="sobre.html" data-i18n="footer.about">Sobre</a>
-          <a href="produtos.html" data-i18n="footer.products">Produtos</a>
-        </div>
+        <nav class="footer-nav">
+          <a href="sobre.html">Sobre</a>
+          <a href="produtos.html">Produtos</a>
+          <a href="engenharia.html">Engenharia</a>
+          <a href="contato.html">Contato</a>
+        </nav>
       </div>
     </footer>
   </div>
-  <a class="whatsapp-float" href="https://wa.me/5516981349898?text=Ol%C3%A1%2C%20Green%20Farms%2C%20gostaria%20de%20falar%20sobre%20uma%20solu%C3%A7%C3%A3o%20industrial." target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
-    <span>WhatsApp</span>
-  </a>
+
+  <a class="whatsapp-float" href="https://wa.me/5516981349898?text=Ol%C3%A1%2C%20Green%20Farms.%20Preciso%20de%20uma%20solu%C3%A7%C3%A3o%20industrial." target="_blank" rel="noopener noreferrer">WhatsApp</a>
   <script src="app.js"></script>
 </body>
 </html>
