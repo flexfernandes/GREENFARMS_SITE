@@ -3,81 +3,124 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>GreenFarms</title>
+  <title>Green Farms | Engenharia Industrial Premium</title>
+  <meta name="description" content="Green Farms entrega soluções industriais sob medida para agro, farmacêutico, alimentício e biotecnológico. Engenharia de precisão, bioprocessos e automação industrial premium.">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <header class="site-header">
-    <div class="container header-inner">
-      <a class="brand" href="#">GreenFarms</a>
-      <nav class="site-nav">
-        <a href="#sobre">Sobre</a>
-        <a href="#produtos">Produtos</a>
-        <a href="#contato">Contato</a>
-      </nav>
-    </div>
-  </header>
+  <div class="page-shell">
+    <header class="site-header">
+      <div class="container header-inner">
+        <a class="brand" href="index.html">
+          <img src="images/company_logo.png" alt="Green Farms" class="brand-mark">
+          <span class="brand-text">GREEN FARMS</span>
+        </a>
 
-  <main>
-    <section class="hero">
-      <div class="container hero-content">
-        <p class="eyebrow">Inspiração GreenFarms</p>
-        <h1>Qualidade e sustentabilidade para seu lar</h1>
-        <p>Descubra produtos naturais e serviços ecológicos pensados para quem valoriza saúde, ambiente e bem-estar.</p>
-        <div class="hero-actions">
-          <a class="button primary" href="#produtos">Ver Produtos</a>
-          <a class="button secondary" href="#contato">Fale Conosco</a>
+        <button class="nav-toggle" aria-label="Abrir navegação" data-toggle="nav"></button>
+
+        <nav class="site-nav" data-nav>
+          <a data-i18n="nav.home" href="index.html">Início</a>
+          <a data-i18n="nav.about" href="sobre.html">Sobre</a>
+          <a data-i18n="nav.products" href="produtos.html">Produtos</a>
+          <a data-i18n="nav.engineering" href="engenharia.html">Engenharia</a>
+          <a data-i18n="nav.contact" href="contato.html">Contato</a>
+          <a data-i18n="nav.register" href="cadastro.html" class="button outline">Cadastro</a>
+        </nav>
+
+        <div class="language-switcher" aria-label="Mudar idioma">
+          <button type="button" data-lang="pt">PT</button>
+          <button type="button" data-lang="en">EN</button>
+          <button type="button" data-lang="es">ES</button>
         </div>
       </div>
-    </section>
+    </header>
 
-    <section id="sobre" class="info-section">
-      <div class="container">
-        <div class="section-header">
-          <span class="section-label">Quem somos</span>
-          <h2>Uma fazenda moderna com DNA sustentável</h2>
+    <main>
+      <section class="hero hero-split">
+        <div class="container hero-panel">
+          <div class="hero-copy">
+            <span class="eyebrow" data-i18n="hero.badge">ENGENHARIA INDUSTRIAL AVANÇADA</span>
+            <h1 data-i18n="hero.title">Green Farms desenvolve soluções industriais sob medida para biotecnologia, farmacêutica e agro.</h1>
+            <p data-i18n="hero.subtitle">Pesquisa aplicada, engenharia de precisão e automação premium para plantas piloto, bioprocessos e equipamentos especiais em inox.</p>
+            <div class="hero-actions">
+              <a class="button primary" data-i18n="hero.ctaContact" href="contato.html">Contato Premium</a>
+              <a class="button secondary" data-i18n="hero.ctaWhatsApp" href="https://wa.me/5516981349898?text=Ol%C3%A1%2C%20Green%20Farms%2C%20tenho%20interesse%20em%20uma%20solu%C3%A7%C3%A3o%20industrial." target="_blank" rel="noopener noreferrer">WhatsApp</a>
+            </div>
+          </div>
+
+          <div class="hero-media glass-card">
+            <img src="images/Biorreatores_Projeto_greenfarms.jpg" alt="Projeto industrial Green Farms" loading="lazy">
+            <div class="hero-media-tag" data-i18n="hero.focus">Precision, bioprocess and custom engineering</div>
+          </div>
         </div>
-        <p>Somos uma empresa dedicada a oferecer soluções agrícolas e alimentos frescos que respeitam o meio ambiente. Nossa missão é conectar produção de qualidade e consumo consciente.</p>
-      </div>
-    </section>
+      </section>
 
-    <section id="produtos" class="cards-section">
-      <div class="container">
-        <h2>Nossos destaques</h2>
-        <div class="cards-grid">
-          <article class="card">
-            <h3>Alimentos frescos</h3>
-            <p>Frutas, legumes e hortaliças cultivados com controle de qualidade e práticas sustentáveis.</p>
+      <section class="section-panel section-featured">
+        <div class="container section-grid">
+          <div>
+            <p class="section-label" data-i18n="transform.label">Transformando necessidades em soluções sob medida</p>
+            <h2 data-i18n="transform.title">Projetos industriais personalizados com alto padrão técnico</h2>
+            <p data-i18n="transform.text">A GREEN FARMS entrega engenharia aplicada para processos CIP, peças especiais em inox, plantas piloto, bioprocessos e sistemas integrados com controle de qualidade industrial.</p>
+          </div>
+
+          <div class="feature-list">
+            <article class="feature-card">
+              <h3 data-i18n="transform.item1.title">Peças especiais em inox</h3>
+              <p data-i18n="transform.item1.text">Componentes de alta resistência com fidelidade dimensional e acabamento premium para ambientes críticos.</p>
+            </article>
+            <article class="feature-card">
+              <h3 data-i18n="transform.item2.title">Equipamentos personalizados</h3>
+              <p data-i18n="transform.item2.text">Soluções sob medida para processos industriais complexos, com engenharia de precisão e integração total.</p>
+            </article>
+            <article class="feature-card">
+              <h3 data-i18n="transform.item3.title">Bioprocessos inteligentes</h3>
+              <p data-i18n="transform.item3.text">Desenvolvimento de plantas piloto e automação adaptada para operações biofarmacêuticas e alimentícias.</p>
+            </article>
+            <article class="feature-card">
+              <h3 data-i18n="transform.item4.title">Sistemas integrados</h3>
+              <p data-i18n="transform.item4.text">Integração de equipamentos, controles e desenvolvimento estratégico para robustez industrial.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section-panel section-statements">
+        <div class="container statements-grid">
+          <article class="statement-card">
+            <span data-i18n="statement.one">Inovação contínua</span>
+            <p data-i18n="statement.oneText">Projetos que combinam engenharia e pesquisa para avanços industriais disruptivos.</p>
           </article>
-          <article class="card">
-            <h3>Produção orgânica</h3>
-            <p>Processos naturais que preservam o solo e entregam produtos mais saudáveis para sua família.</p>
+          <article class="statement-card">
+            <span data-i18n="statement.two">Engenharia de precisão</span>
+            <p data-i18n="statement.twoText">Controle dimensional rigoroso e componentes premium para processos sensíveis.</p>
           </article>
-          <article class="card">
-            <h3>Serviço de entrega</h3>
-            <p>Receba em casa produtos frescos em embalagens sustentáveis e com todo conforto.</p>
+          <article class="statement-card">
+            <span data-i18n="statement.three">Soluções sob medida</span>
+            <p data-i18n="statement.threeText">Cada projeto nasce da necessidade técnica e evolui com confiabilidade e alto desempenho.</p>
           </article>
         </div>
-      </div>
-    </section>
+      </section>
+    </main>
 
-    <section id="contato" class="cta-section">
-      <div class="container cta-content">
+    <footer class="site-footer footer-split">
+      <div class="container footer-grid">
         <div>
-          <span class="section-label">Contato</span>
-          <h2>Pronto para começar?</h2>
-          <p>Entre em contato conosco e peça uma proposta personalizada para sua demanda agrícola ou entrega de alimentos.</p>
+          <span class="footer-label" data-i18n="footer.trust">Green Farms | Engenharia e biotecnologia industrial</span>
+          <p data-i18n="footer.description">Presença premium no agro, farmacêutico, alimentício e biotecnológico com soluções industriais e equipamentos especiais.</p>
         </div>
-        <a class="button primary" href="mailto:contato@greenfarms.com.br">Enviar mensagem</a>
+        <div class="footer-links">
+          <a href="contato.html" data-i18n="footer.contact">Contato</a>
+          <a href="sobre.html" data-i18n="footer.about">Sobre</a>
+          <a href="produtos.html" data-i18n="footer.products">Produtos</a>
+        </div>
       </div>
-    </section>
-  </main>
+    </footer>
+  </div>
 
-  <footer class="site-footer">
-    <div class="container footer-inner">
-      <p>© 2026 GreenFarms. Página criada para teste.</p>
-      <a href="https://greenfarms.com.br/" target="_blank" rel="noopener noreferrer">Visitar greenfarms.com.br</a>
-    </div>
-  </footer>
+  <a class="whatsapp-float" href="https://wa.me/5516981349898?text=Ol%C3%A1%2C%20Green%20Farms%2C%20gostaria%20de%20falar%20sobre%20uma%20solu%C3%A7%C3%A3o%20industrial." target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
+    <span>WhatsApp</span>
+  </a>
+
+  <script src="app.js"></script>
 </body>
 </html>
