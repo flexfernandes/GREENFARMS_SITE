@@ -3,163 +3,205 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Inovações GREENFARMS — Plantas Piloto, Cisalhador Industrial e Bomba Centrífuga Sanitária.">
+  <meta name="description" content="Inovações GREENFARMS — Plantas Piloto, Cisalhador, Bomba Centrífuga, Emulsificador de Calda, Biorreatores e Cabeçote Rotativo.">
   <title>Inovações · GREENFARMS</title>
   <link rel="icon" type="image/png" href="images/logo.png">
   <link rel="stylesheet" href="css/style.css">
   <style>
-    /* Tabs */
-    .tabs {
-      display: flex;
-      gap: 0;
+    /* ── Tabs ───────────────────────────────────────────────────── */
+    .tabs-bar {
+      background: var(--gf-dark);
       border-bottom: 1px solid var(--gf-border-dim);
-      margin-bottom: 64px;
-      overflow-x: auto;
+      position: sticky;
+      top: var(--gf-nav-h);
+      z-index: 100;
     }
+    .tabs-bar__inner {
+      display: flex;
+      overflow-x: auto;
+      scrollbar-width: none;
+    }
+    .tabs-bar__inner::-webkit-scrollbar { display: none; }
+
     .tab-btn {
-      padding: 16px 32px;
+      padding: 18px 28px;
       font-family: var(--gf-mono);
-      font-size: 0.68rem;
-      letter-spacing: 0.14em;
+      font-size: 0.65rem;
+      letter-spacing: 0.16em;
       text-transform: uppercase;
       color: var(--gf-text-dim);
       border-bottom: 2px solid transparent;
       margin-bottom: -1px;
       transition: all var(--gf-transition);
       white-space: nowrap;
-      cursor: pointer;
+      flex-shrink: 0;
     }
     .tab-btn:hover { color: var(--gf-text-mid); }
     .tab-btn.active { color: var(--gf-accent); border-bottom-color: var(--gf-accent); }
 
-    /* Tab panels */
     .tab-panel { display: none; }
     .tab-panel.active { display: block; }
 
-    /* Innovation layout */
-    .innov-hero {
+    /* ── Panel layout ───────────────────────────────────────────── */
+    .panel-hero {
       display: grid;
-      grid-template-columns: 1fr 1.2fr;
-      gap: 64px;
-      align-items: start;
-      margin-bottom: 64px;
-    }
-    .innov-hero--reverse { grid-template-columns: 1.2fr 1fr; }
-    .innov-hero--reverse .innov-img { order: 2; }
-    .innov-hero--reverse .innov-text { order: 1; }
-
-    .innov-img {
-      border-radius: var(--gf-radius-lg);
-      overflow: hidden;
-      position: sticky;
-      top: calc(var(--gf-nav-h) + 24px);
-    }
-    .innov-img img {
-      width: 100%;
-      filter: saturate(0.6) contrast(1.1);
-      display: block;
-    }
-
-    .innov-text .tag { margin-bottom: 16px; }
-    .innov-text h2 { font-size: clamp(1.8rem, 3vw, 2.6rem); margin-bottom: 24px; }
-    .innov-text .lead {
-      font-size: 1.05rem;
-      color: var(--gf-text-mid);
-      line-height: 1.85;
-      font-weight: 300;
-      margin-bottom: 24px;
-      padding-bottom: 24px;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+      min-height: 560px;
+      background: var(--gf-dark);
       border-bottom: 1px solid var(--gf-border-dim);
     }
-    .innov-text p {
+    .panel-hero__img {
+      background: #f0f2ee;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      padding: 32px;
+    }
+    .panel-hero__img img {
+      max-width: 100%;
+      max-height: 480px;
+      object-fit: contain;
+      display: block;
+    }
+    .panel-hero__text {
+      padding: 64px 56px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .panel-hero__text .tag { margin-bottom: 16px; }
+    .panel-hero__text h2 { font-size: clamp(1.8rem, 3vw, 2.6rem); margin-bottom: 20px; }
+    .panel-hero__text .lead {
+      font-size: 1rem;
+      color: var(--gf-text-mid);
+      line-height: 1.88;
+      font-weight: 300;
+      margin-bottom: 20px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid var(--gf-border-dim);
+    }
+    .panel-hero__text p {
+      font-size: 0.88rem;
       color: var(--gf-text-dim);
-      font-size: 0.9rem;
       line-height: 1.9;
       font-weight: 300;
-      margin-bottom: 14px;
+      margin-bottom: 12px;
     }
 
-    .innov-specs {
-      margin-top: 32px;
+    /* ── Gallery strip ──────────────────────────────────────────── */
+    .gallery-strip {
+      display: grid;
+      gap: 16px;
+      margin-top: 16px;
+    }
+    .gallery-strip--2 { grid-template-columns: 1fr 1fr; }
+    .gallery-strip--3 { grid-template-columns: 1fr 1fr 1fr; }
+    .gallery-strip--4 { grid-template-columns: repeat(4,1fr); }
+
+    .gallery-item {
+      border-radius: var(--gf-radius-lg);
+      overflow: hidden;
+      background: #f0f2ee;
+      aspect-ratio: 4/3;
+    }
+    .gallery-item img {
+      width: 100%; height: 100%;
+      object-fit: contain;
+      padding: 12px;
+      transition: transform 0.5s var(--gf-ease);
+    }
+    .gallery-item:hover img { transform: scale(1.04); }
+
+    /* ── Specs box ──────────────────────────────────────────────── */
+    .specs-box {
       background: var(--gf-dark-3);
       border: 1px solid var(--gf-border-dim);
       border-radius: var(--gf-radius-lg);
-      padding: 28px;
+      padding: 28px 32px;
+      margin-top: 28px;
     }
-    .innov-specs h4 {
+    .specs-box h4 {
       font-family: var(--gf-mono);
-      font-size: 0.65rem;
-      letter-spacing: 0.14em;
+      font-size: 0.63rem;
+      letter-spacing: 0.16em;
       text-transform: uppercase;
       color: var(--gf-text-dim);
       margin-bottom: 16px;
     }
-    .innov-specs ul {
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
+    .specs-box ul { display: flex; flex-direction: column; gap: 10px; }
+    .specs-box li {
+      display: flex; align-items: flex-start; gap: 10px;
+      font-size: 0.85rem; color: var(--gf-text-mid); font-weight: 300; line-height: 1.5;
     }
-    .innov-specs li {
-      display: flex;
-      align-items: flex-start;
-      gap: 10px;
-      font-size: 0.85rem;
-      color: var(--gf-text-mid);
-      font-weight: 300;
-      line-height: 1.5;
-    }
-    .innov-specs li::before {
-      content: '—';
-      color: var(--gf-green-light);
-      font-family: var(--gf-mono);
-      flex-shrink: 0;
+    .specs-box li::before {
+      content: '—'; color: var(--gf-green-light);
+      font-family: var(--gf-mono); flex-shrink: 0;
     }
 
-    /* Highlight block */
-    .innov-highlight {
-      background: rgba(61,92,58,0.1);
+    /* ── Highlight quote ────────────────────────────────────────── */
+    .highlight {
+      background: rgba(61,92,58,0.08);
       border-left: 3px solid var(--gf-green-light);
       border-radius: 0 var(--gf-radius) var(--gf-radius) 0;
-      padding: 20px 24px;
-      margin: 24px 0;
+      padding: 18px 22px;
+      margin: 20px 0;
     }
-    .innov-highlight p {
+    .highlight p {
       color: var(--gf-text-mid) !important;
       font-size: 0.92rem !important;
       margin: 0 !important;
       font-style: italic;
+      line-height: 1.75 !important;
     }
 
-    /* Technical detail */
-    .tech-detail {
+    /* ── Tech detail ────────────────────────────────────────────── */
+    .tech-nums {
       display: grid;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: repeat(2,1fr);
       gap: 16px;
-      margin-top: 32px;
+      margin-top: 24px;
     }
-    .tech-detail-item {
+    .tech-num {
       background: var(--gf-dark-3);
       border: 1px solid var(--gf-border-dim);
       border-radius: var(--gf-radius);
-      padding: 20px;
+      padding: 18px 20px;
     }
-    .tech-detail-item strong {
+    .tech-num strong {
       display: block;
       font-family: var(--gf-head);
-      font-size: 1.4rem;
-      font-weight: 700;
-      color: var(--gf-accent);
-      margin-bottom: 4px;
-      line-height: 1;
+      font-size: 1.6rem; font-weight: 700;
+      color: var(--gf-accent); line-height: 1; margin-bottom: 6px;
     }
-    .tech-detail-item span { font-size: 0.78rem; color: var(--gf-text-dim); }
+    .tech-num span { font-size: 0.78rem; color: var(--gf-text-dim); }
+
+    /* ── Panel content area ─────────────────────────────────────── */
+    .panel-content {
+      background: var(--gf-black);
+      padding: 64px 0;
+    }
+
+    /* ── Panel actions ──────────────────────────────────────────── */
+    .panel-actions {
+      margin-top: 32px;
+      display: flex; gap: 14px; flex-wrap: wrap;
+    }
 
     @media(max-width:1024px){
-      .innov-hero, .innov-hero--reverse { grid-template-columns: 1fr; }
-      .innov-hero--reverse .innov-img { order: 0; }
-      .innov-hero--reverse .innov-text { order: 0; }
-      .innov-img { position: static; }
-      .tech-detail { grid-template-columns: 1fr; }
+      .panel-hero { grid-template-columns: 1fr; min-height: auto; }
+      .panel-hero__img { min-height: 280px; }
+      .panel-hero__text { padding: 40px 28px; }
+      .gallery-strip--3 { grid-template-columns: 1fr 1fr; }
+      .gallery-strip--4 { grid-template-columns: 1fr 1fr; }
+    }
+    @media(max-width:768px){
+      .panel-hero__text { padding: 28px 20px; }
+      .gallery-strip--2, .gallery-strip--3, .gallery-strip--4 { grid-template-columns: 1fr; }
+      .tech-nums { grid-template-columns: 1fr; }
+      .tabs-bar__inner { padding: 0 4px; }
+      .tab-btn { padding: 16px 18px; font-size: 0.6rem; }
     }
   </style>
 </head>
@@ -171,251 +213,358 @@
   <div class="container">
     <span class="label">Inovações</span>
     <h1>Tecnologia industrial<br>em desenvolvimento</h1>
-    <p>Soluções concebidas com engenharia de precisão, focadas em resolver desafios técnicos reais dos setores industrial, farmacêutico e biotecnológico.</p>
+    <p>Soluções concebidas com engenharia de precisão para resolver desafios técnicos reais nos setores industrial, farmacêutico e biotecnológico.</p>
   </div>
 </section>
 
-<!-- TAB NAVIGATION -->
-<section class="section" style="background:var(--gf-dark);border-bottom:1px solid var(--gf-border-dim);padding-bottom:0;">
+<!-- TABS BAR -->
+<div class="tabs-bar">
   <div class="container">
-    <div class="tabs">
+    <div class="tabs-bar__inner">
       <button class="tab-btn active" data-tab="plantas-piloto">Plantas Piloto</button>
-      <button class="tab-btn" data-tab="cisalhador">Cisalhador Industrial</button>
+      <button class="tab-btn" data-tab="cisalhador">Cisalhador</button>
       <button class="tab-btn" data-tab="bomba">Bomba Centrífuga</button>
+      <button class="tab-btn" data-tab="emulsificador">Emulsificador de Calda</button>
+      <button class="tab-btn" data-tab="biorreatores">Biorreatores</button>
+      <button class="tab-btn" data-tab="cabecote">Cabeçote Rotativo</button>
     </div>
   </div>
-</section>
+</div>
 
-<section class="section" style="background:var(--gf-dark);">
-  <div class="container">
-
-    <!-- PLANTAS PILOTO -->
-    <div class="tab-panel active" id="tab-plantas-piloto">
-      <div class="innov-hero">
-        <div class="innov-img anim-fade">
-          <img src="images/planta-piloto.jpg" alt="Planta Piloto GREENFARMS">
-        </div>
-        <div class="innov-text anim-fade anim-delay-2">
-          <span class="tag">Desenvolvimento Industrial</span>
-          <h2>Plantas Piloto Industriais</h2>
-          <p class="lead">A GREENFARMS desenvolve plantas piloto industriais personalizadas, projetadas de acordo com a necessidade específica de cada empresa, processo e aplicação industrial.</p>
-
-          <p>O principal objetivo de uma planta piloto é permitir que indústrias realizem testes, validações, ajustes operacionais e desenvolvimento de produtos em menor escala antes de avançarem para uma produção industrial de grande capacidade.</p>
-
-          <p>Esse processo reduz riscos, otimiza investimentos e proporciona muito mais segurança técnica e operacional durante a transição para escalas maiores.</p>
-
-          <div class="innov-highlight">
-            <p>Cada planta piloto é concebida de forma estratégica, respeitando características fundamentais de cada processo: tipo de produto, viscosidade, temperatura, abrasividade, tempo de processo, necessidade de automação e controle sanitário.</p>
-          </div>
-
-          <p>No segmento alimentício, uma planta piloto permite validar formulações, estabilidade, textura, homogeneização, rendimento e comportamento do produto antes de investimentos em linhas industriais completas.</p>
-
-          <p>Na indústria farmacêutica e biológica, a planta piloto possui papel ainda mais estratégico, permitindo estudos de processo, validação operacional, controle sanitário, repetibilidade, rastreabilidade e definição segura dos parâmetros produtivos antes do scale-up industrial.</p>
-
-          <div class="innov-specs">
-            <h4>Características de Desenvolvimento</h4>
-            <ul>
-              <li>Engenharia de precisão e flexibilidade operacional</li>
-              <li>Sanitização eficiente e automação inteligente</li>
-              <li>Robustez industrial com facilidade de manutenção</li>
-              <li>Projeto com expansão futura prevista</li>
-              <li>Suporte técnico completo durante validação</li>
-              <li>Documentação técnica e rastreabilidade de processo</li>
-            </ul>
-          </div>
-
-          <div style="margin-top:32px;">
-            <a href="contato.html" class="btn btn--primary">Solicitar Desenvolvimento</a>
-          </div>
-        </div>
+<!-- ═══════════════════════════════════════════════════════════════
+     PLANTAS PILOTO
+════════════════════════════════════════════════════════════════ -->
+<div class="tab-panel active" id="tab-plantas-piloto">
+  <div class="panel-hero">
+    <div class="panel-hero__img">
+      <img src="images/planta-piloto.png" alt="Planta Piloto GREENFARMS">
+    </div>
+    <div class="panel-hero__text">
+      <span class="tag">Desenvolvimento Industrial</span>
+      <h2>Plantas Piloto Industriais</h2>
+      <p class="lead">A GREENFARMS desenvolve plantas piloto industriais personalizadas, projetadas de acordo com a necessidade específica de cada empresa, processo e aplicação industrial.</p>
+      <p>O principal objetivo é permitir que indústrias realizem testes, validações, ajustes operacionais e desenvolvimento de produtos em menor escala antes de avançarem para produção industrial de grande capacidade — reduzindo riscos e otimizando investimentos.</p>
+      <div class="highlight"><p>Cada planta piloto é concebida respeitando características fundamentais do processo: viscosidade, temperatura, abrasividade, automação, controle sanitário e capacidade produtiva.</p></div>
+      <div class="specs-box">
+        <h4>Foco de Desenvolvimento</h4>
+        <ul>
+          <li>Engenharia de precisão e flexibilidade operacional</li>
+          <li>Sanitização eficiente e automação inteligente</li>
+          <li>Robustez industrial com facilidade de manutenção</li>
+          <li>Expansão futura prevista em projeto</li>
+          <li>Documentação técnica e rastreabilidade</li>
+        </ul>
       </div>
-
-      <!-- Benefícios -->
-      <div class="divider" style="margin-bottom:48px;"></div>
-      <div class="section-header" style="margin-bottom:40px;">
-        <div class="section-header__label"><span class="label">Benefícios Técnicos</span></div>
-        <h2>O que uma planta piloto proporciona</h2>
-      </div>
-      <div class="grid-3">
-        <div class="card">
-          <div class="card__icon">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-          </div>
-          <h3>Redução de Riscos</h3>
-          <p>Validação completa antes do investimento em escala industrial, reduzindo riscos operacionais e financeiros no scale-up.</p>
-        </div>
-        <div class="card">
-          <div class="card__icon">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
-          </div>
-          <h3>Otimização de Processos</h3>
-          <p>Testes, ajustes e otimizações operacionais em menor escala antes da produção industrial completa.</p>
-        </div>
-        <div class="card">
-          <div class="card__icon">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 17V7m0 10a2 2 0 01-2 2H5a2 2 0 01-2-2V7a2 2 0 012-2h2a2 2 0 012 2m0 10a2 2 0 002 2h2a2 2 0 002-2M9 7a2 2 0 012-2h2a2 2 0 012 2m0 10V7m0 10a2 2 0 002 2h2a2 2 0 002-2V7a2 2 0 00-2-2h-2a2 2 0 00-2 2"/></svg>
-          </div>
-          <h3>Scale-up Seguro</h3>
-          <p>Dados operacionais concretos para embasar a transição para produção em alta escala com segurança e precisão.</p>
-        </div>
+      <div class="panel-actions">
+        <a href="contato.html" class="btn btn--primary">Solicitar Desenvolvimento</a>
+        <a href="contato.html" class="btn btn--outline">Solicitar Orçamento</a>
       </div>
     </div>
-
-    <!-- CISALHADOR -->
-    <div class="tab-panel" id="tab-cisalhador">
-      <div class="innov-hero innov-hero--reverse">
-        <div class="innov-img anim-fade">
-          <img src="images/cisalhador.jpg" alt="Cisalhador Industrial GREENFARMS">
-        </div>
-        <div class="innov-text anim-fade anim-delay-2">
-          <span class="tag">Alta Performance</span>
-          <h2>Cisalhador Industrial de Alta Eficiência</h2>
-          <p class="lead">A GREENFARMS desenvolveu uma nova geração de sistemas de cisalhamento industrial, projetados especialmente para aplicações de elevada exigência técnica e produtos com diferentes níveis de abrasividade.</p>
-
-          <p>Cada equipamento é desenvolvido de forma personalizada, respeitando as características específicas de processo, viscosidade, granulometria, abrasividade e objetivo operacional de cada cliente.</p>
-
-          <p>O sistema de cisalhamento foi concebido utilizando ligas inoxidáveis especiais de elevada dureza e resistência mecânica, permitindo operação contínua mesmo em ambientes severos e processos altamente abrasivos.</p>
-
-          <div class="innov-highlight">
-            <p>O grande diferencial está na extrema precisão construtiva do conjunto rotor e estator — com tolerâncias que chegam a 0,3 mm entre os conjuntos, associadas a sistemas de alta rotação para cisalhamento de altíssima performance.</p>
-          </div>
-
-          <div class="tech-detail">
-            <div class="tech-detail-item">
-              <strong>1,2 mm</strong>
-              <span>Distância entre rotor e estator (configuração padrão)</span>
-            </div>
-            <div class="tech-detail-item">
-              <strong>0,3 mm</strong>
-              <span>Aproximação mínima em configurações de alta precisão</span>
-            </div>
-          </div>
-
-          <div class="innov-specs" style="margin-top:32px;">
-            <h4>Setores de Aplicação</h4>
-            <ul>
-              <li>Indústria alimentícia e agronegócio</li>
-              <li>Biotecnologia e processos fermentativos</li>
-              <li>Indústria química e petroquímica</li>
-              <li>Aplicações com alta abrasividade</li>
-              <li>Processos de dispersão e homogeneização</li>
-            </ul>
-          </div>
-
-          <div style="margin-top:32px;">
-            <a href="contato.html" class="btn btn--primary">Solicitar Especificações</a>
-          </div>
-        </div>
-      </div>
-
-      <div class="divider" style="margin-bottom:48px;"></div>
-      <div class="section-header" style="margin-bottom:40px;">
-        <div class="section-header__label"><span class="label">Performance Técnica</span></div>
-        <h2>Resultados operacionais</h2>
-      </div>
-      <div class="grid-3">
-        <div class="card">
-          <div class="card__icon">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg>
-          </div>
-          <h3>Alta Dispersão</h3>
-          <p>Elevada capacidade de dispersão e homogeneização, com redução eficiente do tamanho de partículas.</p>
-        </div>
-        <div class="card">
-          <div class="card__icon">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-          </div>
-          <h3>Resistência ao Desgaste</h3>
-          <p>Ligas especiais de alta dureza para operação contínua em processos abrasivos com maior vida útil dos componentes.</p>
-        </div>
-        <div class="card">
-          <div class="card__icon">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/><circle cx="12" cy="12" r="3"/></svg>
-          </div>
-          <h3>Fácil Manutenção</h3>
-          <p>Projeto que prioriza facilidade de limpeza, sanitização eficiente e acesso simplificado para manutenção preventiva.</p>
-        </div>
-      </div>
-    </div>
-
-    <!-- BOMBA CENTRÍFUGA -->
-    <div class="tab-panel" id="tab-bomba">
-      <div class="innov-hero">
-        <div class="innov-img anim-fade">
-          <img src="images/bomba-centrifuga.jpg" alt="Bomba Centrífuga GREENFARMS">
-        </div>
-        <div class="innov-text anim-fade anim-delay-2">
-          <span class="tag">Em Desenvolvimento</span>
-          <h2>Bomba Centrífuga Sanitária Desmontável</h2>
-          <p class="lead">A GREENFARMS está desenvolvendo uma nova geração de bombas centrífugas industriais com conceito totalmente voltado para praticidade operacional, sanitização avançada e manutenção inteligente.</p>
-
-          <p>O grande diferencial deste projeto está em sua engenharia totalmente desmontável sem utilização de ferramentas. Toda a estrutura da bomba, incluindo o conjunto hidráulico e a base do rotor, poderá ser desmontada manualmente, de forma rápida, segura e extremamente prática.</p>
-
-          <div class="innov-highlight">
-            <p>Inovação industrial não está apenas em performance, mas também na simplificação inteligente dos processos — tecnologia, eficiência e praticidade caminhando juntas no ambiente industrial moderno.</p>
-          </div>
-
-          <p>Essa inovação proporciona ganhos significativos em processos que exigem elevados padrões de limpeza, higienização e sanitização, especialmente nos segmentos biotecnológico, farmacêutico, alimentício e industrial.</p>
-
-          <p>Com acesso rápido aos componentes internos, o operador consegue realizar procedimentos de limpeza e inspeção de maneira muito mais eficiente, reduzindo drasticamente tempo de parada e riscos associados a pontos de acúmulo de resíduos.</p>
-
-          <div class="innov-specs">
-            <h4>Operações sem ferramentas</h4>
-            <ul>
-              <li>Inspeção interna completa</li>
-              <li>Limpeza e sanitização</li>
-              <li>Troca de selo mecânico</li>
-              <li>Substituição de componentes de desgaste</li>
-              <li>Manutenção preventiva e corretiva</li>
-              <li>Validação de limpeza (processos regulados)</li>
-            </ul>
-          </div>
-
-          <div style="margin-top:32px;">
-            <a href="contato.html" class="btn btn--primary">Acompanhar Desenvolvimento</a>
-          </div>
-        </div>
-      </div>
-
-      <div class="divider" style="margin-bottom:48px;"></div>
-      <div class="section-header" style="margin-bottom:40px;">
-        <div class="section-header__label"><span class="label">Ganhos Operacionais</span></div>
-        <h2>Impacto na operação industrial</h2>
-      </div>
-      <div class="grid-3">
-        <div class="card">
-          <div class="card__icon">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-          </div>
-          <h3>Redução de Downtime</h3>
-          <p>Desmontagem e remontagem em minutos, sem ferramentas, reduzindo drasticamente o tempo de parada para manutenção.</p>
-        </div>
-        <div class="card">
-          <div class="card__icon">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/></svg>
-          </div>
-          <h3>Sanitização Superior</h3>
-          <p>Acesso completo a todos os componentes internos para limpeza, eliminando pontos críticos de acúmulo de resíduos.</p>
-        </div>
-        <div class="card">
-          <div class="card__icon">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>
-          </div>
-          <h3>Menor Custo Operacional</h3>
-          <p>Redução de custos com mão de obra especializada, ferramentas e tempo de intervenção, aumentando disponibilidade do equipamento.</p>
-        </div>
-      </div>
-    </div>
-
   </div>
-</section>
+  <div class="panel-content">
+    <div class="container">
+      <div class="section-header" style="margin-bottom:36px;">
+        <div class="section-header__label"><span class="label">Galeria</span></div>
+        <h2>Projetos de Plantas Piloto</h2>
+      </div>
+      <div class="gallery-strip gallery-strip--3">
+        <div class="gallery-item"><img src="images/planta-piloto-2.png" alt="Planta Piloto 2" loading="lazy"></div>
+        <div class="gallery-item"><img src="images/planta-piloto-3.png" alt="Planta Piloto 3" loading="lazy"></div>
+        <div class="gallery-item"><img src="images/planta-piloto-4.png" alt="Planta Piloto 4" loading="lazy"></div>
+      </div>
+    </div>
+  </div>
+</div>
 
-<!-- CTA -->
-<section class="section--sm" style="background:var(--gf-black);border-top:1px solid var(--gf-border-dim);">
+<!-- ═══════════════════════════════════════════════════════════════
+     CISALHADOR
+════════════════════════════════════════════════════════════════ -->
+<div class="tab-panel" id="tab-cisalhador">
+  <div class="panel-hero">
+    <div class="panel-hero__img">
+      <img src="images/cisalhador.png" alt="Cisalhador Industrial GREENFARMS">
+    </div>
+    <div class="panel-hero__text">
+      <span class="tag">Alta Performance</span>
+      <h2>Cisalhador Industrial de Alta Eficiência</h2>
+      <p class="lead">A GREENFARMS desenvolveu uma nova geração de sistemas de cisalhamento industrial, projetados para aplicações de elevada exigência técnica e produtos com diferentes níveis de abrasividade.</p>
+      <p>O sistema foi concebido com ligas inoxidáveis especiais de elevada dureza, permitindo operação contínua mesmo em ambientes severos e processos altamente abrasivos.</p>
+      <div class="highlight"><p>Tolerâncias que chegam a 0,3 mm entre rotor e estator, associadas a alta rotação, resultam em cisalhamento de altíssima performance e dispersão eficiente.</p></div>
+      <div class="tech-nums">
+        <div class="tech-num"><strong>1,2 mm</strong><span>Distância padrão rotor/estator</span></div>
+        <div class="tech-num"><strong>0,3 mm</strong><span>Aproximação mínima de precisão</span></div>
+      </div>
+      <div class="panel-actions">
+        <a href="contato.html" class="btn btn--primary">Solicitar Especificações</a>
+      </div>
+    </div>
+  </div>
+  <div class="panel-content">
+    <div class="container">
+      <div class="section-header" style="margin-bottom:36px;">
+        <div class="section-header__label"><span class="label">Galeria</span></div>
+        <h2>Cisalhador em detalhe</h2>
+      </div>
+      <div class="gallery-strip gallery-strip--2">
+        <div class="gallery-item"><img src="images/cisalhador-2.png" alt="Cisalhador detalhe 2" loading="lazy"></div>
+        <div class="gallery-item"><img src="images/cisalhador-3.png" alt="Cisalhador detalhe 3" loading="lazy"></div>
+      </div>
+      <div class="specs-box" style="margin-top:32px;">
+        <h4>Setores de Aplicação</h4>
+        <ul>
+          <li>Indústria alimentícia e agronegócio</li>
+          <li>Biotecnologia e processos fermentativos</li>
+          <li>Indústria química e petroquímica</li>
+          <li>Processos com alta abrasividade</li>
+          <li>Dispersão, homogeneização e redução de partículas</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════════
+     BOMBA CENTRÍFUGA
+════════════════════════════════════════════════════════════════ -->
+<div class="tab-panel" id="tab-bomba">
+  <div class="panel-hero">
+    <div class="panel-hero__img">
+      <img src="images/bomba-centrifuga.png" alt="Bomba Centrífuga Sanitária GREENFARMS">
+    </div>
+    <div class="panel-hero__text">
+      <span class="tag">Em Desenvolvimento</span>
+      <h2>Bomba Centrífuga Sanitária Desmontável</h2>
+      <p class="lead">A GREENFARMS está desenvolvendo uma nova geração de bombas centrífugas industriais com conceito voltado para praticidade operacional, sanitização avançada e manutenção inteligente.</p>
+      <p>O grande diferencial está na engenharia totalmente desmontável sem utilização de ferramentas — todo o conjunto hidráulico e a base do rotor podem ser desmontados manualmente em poucos minutos.</p>
+      <div class="highlight"><p>Inovação industrial não está apenas em performance, mas na simplificação inteligente dos processos — tecnologia, eficiência e praticidade juntas no ambiente industrial moderno.</p></div>
+      <div class="specs-box">
+        <h4>Operações sem ferramentas</h4>
+        <ul>
+          <li>Inspeção interna completa</li>
+          <li>Limpeza e sanitização</li>
+          <li>Troca de selo mecânico</li>
+          <li>Substituição de componentes de desgaste</li>
+          <li>Manutenção preventiva e corretiva</li>
+        </ul>
+      </div>
+      <div class="panel-actions">
+        <a href="contato.html" class="btn btn--primary">Acompanhar Desenvolvimento</a>
+      </div>
+    </div>
+  </div>
+  <div class="panel-content">
+    <div class="container">
+      <div class="section-header" style="margin-bottom:36px;">
+        <div class="section-header__label"><span class="label">Galeria</span></div>
+        <h2>Bomba Centrífuga em detalhe</h2>
+      </div>
+      <div class="gallery-strip gallery-strip--2">
+        <div class="gallery-item"><img src="images/bomba-centrifuga-2.png" alt="Bomba detalhe 2" loading="lazy"></div>
+        <div class="gallery-item"><img src="images/bomba-centrifuga-3.png" alt="Bomba detalhe 3" loading="lazy"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════════
+     EMULSIFICADOR DE CALDA
+════════════════════════════════════════════════════════════════ -->
+<div class="tab-panel" id="tab-emulsificador">
+  <div class="panel-hero">
+    <div class="panel-hero__img">
+      <img src="images/emulsificador.png" alt="Emulsificador de Calda GREENFARMS">
+    </div>
+    <div class="panel-hero__text">
+      <span class="tag">2 Estágios</span>
+      <h2>Emulsificador de Calda</h2>
+      <p class="lead">A GREENFARMS desenvolve sistemas emulsificadores industriais de alta eficiência, projetados para aplicações que exigem elevada capacidade de mistura, dispersão e formação de emulsões estáveis em diferentes segmentos industriais.</p>
+      <p>O grande diferencial está na tecnologia de emulsificação em dois estágios, proporcionando um processo muito mais eficiente de homogeneização, dispersão, quebra de partículas e estabilidade da emulsão.</p>
+      <div class="highlight"><p>Produtos com diferentes densidades e características físico-químicas são incorporados de maneira extremamente eficiente, reduzindo separações de fase e aumentando significativamente a qualidade final da formulação.</p></div>
+      <div class="specs-box">
+        <h4>Aplicações</h4>
+        <ul>
+          <li>Caldas agrícolas e formulações biológicas</li>
+          <li>Emulsões industriais e produtos oleosos</li>
+          <li>Formulações alimentícias e farmacêuticas</li>
+          <li>Misturas bifásicas e preparados industriais</li>
+          <li>Operações em campo e processos industriais</li>
+        </ul>
+      </div>
+      <div class="panel-actions">
+        <a href="contato.html" class="btn btn--primary">Solicitar Informações</a>
+      </div>
+    </div>
+  </div>
+  <div class="panel-content">
+    <div class="container">
+      <div class="section-header" style="margin-bottom:36px;">
+        <div class="section-header__label"><span class="label">Galeria</span></div>
+        <h2>Emulsificador em detalhe</h2>
+      </div>
+      <div class="gallery-strip gallery-strip--2">
+        <div class="gallery-item"><img src="images/emulsificador.png" alt="Emulsificador detalhe 1" loading="lazy"></div>
+        <div class="gallery-item"><img src="images/emulsificador-2.png" alt="Emulsificador detalhe 2" loading="lazy"></div>
+      </div>
+      <div class="grid-3" style="margin-top:48px;">
+        <div class="card">
+          <div class="card__icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></div>
+          <h3>Alta Eficiência</h3>
+          <p>Dois estágios de emulsificação para dispersão superior e estabilidade de emulsão em uma única passagem.</p>
+        </div>
+        <div class="card">
+          <div class="card__icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+          <h3>Versatilidade</h3>
+          <p>Adaptado a diferentes viscosidades, densidades e tipos de formulação — agrícola, farmacêutica, alimentícia ou química.</p>
+        </div>
+        <div class="card">
+          <div class="card__icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/><circle cx="12" cy="12" r="3"/></svg></div>
+          <h3>Sob Medida</h3>
+          <p>Cada equipamento é desenvolvido conforme viscosidade, vazão, abrasividade e exigências sanitárias do processo.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════════
+     BIORREATORES
+════════════════════════════════════════════════════════════════ -->
+<div class="tab-panel" id="tab-biorreatores">
+  <div class="panel-hero">
+    <div class="panel-hero__img">
+      <img src="images/biorreatores.png" alt="Sistema de Biorreatores GREENFARMS">
+    </div>
+    <div class="panel-hero__text">
+      <span class="tag">Bioprocessos</span>
+      <h2>Biorreatores Industriais</h2>
+      <p class="lead">A GREENFARMS é especializada no desenvolvimento de soluções tecnológicas para bioprocessos industriais, com foco em inovação, engenharia de precisão e evolução dos sistemas produtivos para a indústria de biológicos.</p>
+      <p>Um dos maiores desafios existentes na indústria de biológicos é o controle e a redução dos riscos de contaminação cruzada. É exatamente nesse ponto que a GREENFARMS concentra grande parte de seus estudos e desenvolvimentos tecnológicos.</p>
+      <div class="highlight"><p>Nossa engenharia trabalha continuamente na criação de dispositivos, sistemas e conceitos inovadores voltados para redução de pontos críticos de contaminação, melhoria sanitária e otimização de limpeza CIP e SIP.</p></div>
+      <div class="specs-box">
+        <h4>Foco Tecnológico</h4>
+        <ul>
+          <li>Redução de pontos críticos de contaminação</li>
+          <li>Otimização de limpeza CIP e SIP</li>
+          <li>Eliminação de zonas mortas e acúmulo de resíduos</li>
+          <li>Automação inteligente e controle de processo</li>
+          <li>Design industrial alinhado ao padrão europeu</li>
+        </ul>
+      </div>
+      <div class="panel-actions">
+        <a href="contato.html" class="btn btn--primary">Solicitar Projeto</a>
+      </div>
+    </div>
+  </div>
+  <div class="panel-content">
+    <div class="container">
+      <div class="section-header" style="margin-bottom:36px;">
+        <div class="section-header__label"><span class="label">Galeria</span></div>
+        <h2>Sistemas de Biorreatores</h2>
+        <p>Imagens dos sistemas desenvolvidos pela GREENFARMS para bioprocessos industriais.</p>
+      </div>
+
+      <!-- Imagem 2 em destaque -->
+      <div style="border-radius:var(--gf-radius-lg);overflow:hidden;background:#f0f2ee;margin-bottom:16px;padding:32px;display:flex;align-items:center;justify-content:center;min-height:440px;">
+        <img src="images/biorreator-2.png" alt="Biorreator Industrial GREENFARMS" style="max-height:400px;object-fit:contain;" loading="lazy">
+      </div>
+
+      <!-- Fábricas em grid -->
+      <div class="gallery-strip gallery-strip--3">
+        <div class="gallery-item"><img src="images/biorreator-fabrica-1.png" alt="Biorreator Fábrica 1" loading="lazy"></div>
+        <div class="gallery-item"><img src="images/biorreator-fabrica-2.png" alt="Biorreator Fábrica 2" loading="lazy"></div>
+        <div class="gallery-item"><img src="images/biorreator-fabrica-3.png" alt="Biorreator Fábrica 3" loading="lazy"></div>
+      </div>
+
+      <div class="grid-3" style="margin-top:48px;">
+        <div class="card">
+          <div class="card__icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+          <h3>Segurança Microbiológica</h3>
+          <p>Projetos com foco na redução de riscos de contaminação cruzada e melhoria da assepsia operacional.</p>
+        </div>
+        <div class="card">
+          <div class="card__icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M13 10V3L4 14h7v7l9-11h-7z"/></svg></div>
+          <h3>Automação Inteligente</h3>
+          <p>Sistemas de controle e monitoramento integrados para processos fermentativos e biotecnológicos.</p>
+        </div>
+        <div class="card">
+          <div class="card__icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 3H5a2 2 0 00-2 2v4m6-6h10a2 2 0 012 2v4M9 3v18m0 0h10a2 2 0 002-2V9M9 21H5a2 2 0 01-2-2V9m0 0h18"/></svg></div>
+          <h3>Personalização Total</h3>
+          <p>Cada biorreator é desenvolvido conforme o processo específico, volume, produto e requisitos sanitários do cliente.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════════
+     CABEÇOTE ROTATIVO
+════════════════════════════════════════════════════════════════ -->
+<div class="tab-panel" id="tab-cabecote">
+  <div class="panel-hero">
+    <div class="panel-hero__img">
+      <img src="images/cabecote-rotativo.png" alt="Cabeçote Rotativo GREENFARMS">
+    </div>
+    <div class="panel-hero__text">
+      <span class="tag">CIP 360°</span>
+      <h2>Cabeçotes Rotativos para Sistemas CIP</h2>
+      <p class="lead">Os Cabeçotes Rotativos GREENFARMS foram desenvolvidos para oferecer máxima eficiência em processos de higienização CIP, atendendo indústrias que exigem elevado padrão sanitário e alta performance operacional.</p>
+      <p>Com tecnologia de rotação 3D 360°, os equipamentos proporcionam cobertura completa do interior de tanques, vasos, dornas, biorreatores e sistemas industriais, eliminando pontos cegos e aumentando significativamente a eficiência da limpeza.</p>
+      <div class="highlight"><p>Cada equipamento pode ser desenvolvido de forma personalizada, com bicos que variam de 5mm a 30mm de vazão — desde processos sanitários delicados até aplicações industriais de elevada demanda hidráulica.</p></div>
+      <div class="specs-box">
+        <h4>Setores de Aplicação</h4>
+        <ul>
+          <li>Alimentício e farmacêutico</li>
+          <li>Biotecnológico e cosmético</li>
+          <li>Químico e agroindustrial</li>
+          <li>Qualquer processo que exija CIP eficiente</li>
+        </ul>
+      </div>
+      <div class="panel-actions">
+        <a href="contato.html" class="btn btn--primary">Solicitar Especificações</a>
+        <a href="contato.html" class="btn btn--outline">Solicitar Orçamento</a>
+      </div>
+    </div>
+  </div>
+  <div class="panel-content">
+    <div class="container">
+      <div class="grid-3" style="margin-bottom:48px;">
+        <div class="card">
+          <div class="card__icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg></div>
+          <h3>Rotação 3D 360°</h3>
+          <p>Cobertura total sem pontos cegos, garantindo limpeza uniforme em toda a superfície interna do equipamento.</p>
+        </div>
+        <div class="card">
+          <div class="card__icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20 7H4a2 2 0 00-2 2v6a2 2 0 002 2h16a2 2 0 002-2V9a2 2 0 00-2-2z"/><path d="M16 21V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v16"/></svg></div>
+          <h3>Bicos 5 a 30 mm</h3>
+          <p>Modelos com diferentes vazões para atender desde higienização delicada até aplicações de alto impacto hidráulico.</p>
+        </div>
+        <div class="card">
+          <div class="card__icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+          <h3>Menor Consumo</h3>
+          <p>Limpeza eficiente na primeira aplicação, reduzindo consumo de água, produtos químicos e tempo operacional.</p>
+        </div>
+      </div>
+      <div class="specs-box">
+        <h4>Benefícios Operacionais</h4>
+        <ul>
+          <li>Menor consumo de água e produtos químicos</li>
+          <li>Diminuição do tempo de limpeza e parada de produção</li>
+          <li>Fabricado em aço inoxidável de alta resistência</li>
+          <li>Pressão, velocidade e vazão ajustáveis por aplicação</li>
+          <li>Projeto sob medida conforme geometria do tanque</li>
+          <li>Aumento da segurança sanitária operacional</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CTA final -->
+<section class="section--sm" style="background:var(--gf-dark);border-top:1px solid var(--gf-border-dim);">
   <div class="container" style="text-align:center;">
-    <span class="label" style="display:block;margin-bottom:20px;">Tem Interesse?</span>
+    <span class="label" style="display:block;margin-bottom:18px;">Próximo Passo</span>
     <h2 style="font-size:clamp(1.6rem,3vw,2.2rem);margin-bottom:28px;">Entre em contato para saber mais<br>sobre nossas inovações.</h2>
-    <div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap;">
+    <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap;">
       <a href="contato.html" class="btn btn--primary">Falar com a Equipe</a>
       <a href="https://wa.me/5516981349898" target="_blank" class="btn btn--whatsapp">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413"/></svg>
@@ -438,14 +587,15 @@
       document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
       btn.classList.add('active');
       document.getElementById('tab-' + target).classList.add('active');
+      // Scroll to top of content
+      window.scrollTo({ top: document.querySelector('.tabs-bar').offsetTop - 10, behavior: 'smooth' });
     });
   });
-
-  // Open tab from URL hash
+  // Open from URL hash
   const hash = window.location.hash.replace('#','');
   if (hash) {
     const btn = document.querySelector(`.tab-btn[data-tab="${hash}"]`);
-    if (btn) btn.click();
+    if (btn) { btn.click(); setTimeout(() => btn.scrollIntoView({ block: 'nearest' }), 100); }
   }
 </script>
 </body>
