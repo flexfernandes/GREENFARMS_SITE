@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Inovações GREENFARMS — Plantas Piloto, Cisalhador, Bomba Centrífuga, Emulsificador de Calda, Biorreatores e Cabeçote Rotativo.">
   <title>Inovações · GREENFARMS</title>
-  <link rel="icon" type="image/png" href="images/logo.png">
+  <link rel="icon" type="image/png" href="images/favicon.png">
   <link rel="stylesheet" href="css/style.css">
   <style>
     /* ── Tabs ───────────────────────────────────────────────────── */
@@ -47,9 +47,9 @@
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 0;
-      min-height: 560px;
       background: var(--gf-dark);
       border-bottom: 1px solid var(--gf-border-dim);
+      align-items: stretch;
     }
     .panel-hero__img {
       background: #f0f2ee;
@@ -57,19 +57,26 @@
       align-items: center;
       justify-content: center;
       overflow: hidden;
-      padding: 32px;
+      padding: 40px 32px;
+      /* Fixed height so image side doesn't stretch with text */
+      min-height: 420px;
+      max-height: 560px;
+      position: sticky;
+      top: calc(var(--gf-nav-h) + 60px);
+      align-self: start;
     }
     .panel-hero__img img {
-      max-width: 100%;
-      max-height: 480px;
+      width: 100%;
+      max-height: 440px;
       object-fit: contain;
       display: block;
     }
     .panel-hero__text {
-      padding: 64px 56px;
+      padding: 56px 52px;
       display: flex;
       flex-direction: column;
-      justify-content: center;
+      justify-content: flex-start;
+      overflow-y: auto;
     }
     .panel-hero__text .tag { margin-bottom: 16px; }
     .panel-hero__text h2 { font-size: clamp(1.8rem, 3vw, 2.6rem); margin-bottom: 20px; }

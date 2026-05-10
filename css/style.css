@@ -101,7 +101,7 @@ h1, h2, h3, h4, h5, h6 {
 
 /* ── LOGO — horizontal, invertida para fundo escuro ─────────────── */
 .nav__logo img {
-  height: 28px;   /* altura fixa — logomarca horizontal é mais larga */
+  height: 36px;   /* altura fixa — logomarca horizontal é mais larga */
   width: auto;
   filter: brightness(0) invert(1);
   opacity: 0.88;
@@ -362,7 +362,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 .footer__logo { margin-bottom: 18px; }
 .footer__logo img {
-  height: 24px; width: auto;
+  height: 28px; width: auto;
   filter: brightness(0) invert(1); opacity: 0.65;
 }
 .footer__col h4 {
