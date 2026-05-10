@@ -3,89 +3,75 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Green Farms | Contato</title>
-  <meta name="description" content="Entre em contato com a Green Farms para desenvolver soluções industriais sob medida para agro, farmacêutico, alimentício e biotecnológico.">
+  <title>Contato | GREENFARMS</title>
+  <meta name="description" content="Entre em contato com a GREENFARMS para projetos industriais, engenharia aplicada e desenvolvimento tecnológico.">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
   <div class="page-shell">
     <header class="site-header">
-      <div class="container header-inner">
+      <div class="container header-row">
         <a class="brand" href="index.html">
-          <img src="images/company_logo.png" alt="Green Farms" class="brand-mark">
-          <div class="brand-details">
-            <strong class="brand-name">GREEN FARMS</strong>
-            <span class="brand-subtitle">Engenharia | Biotecnologia | Automação</span>
+          <img src="images/company_logo.png" alt="Logotipo GREENFARMS" class="brand-logo">
+          <div>
+            <strong class="brand-name">GREENFARMS</strong>
+            <p class="brand-tag">Engenharia e desenvolvimento industrial</p>
           </div>
         </a>
-
+        <button class="nav-toggle" aria-label="Abrir menu" data-toggle="nav"></button>
         <nav class="site-nav" data-nav>
-          <a data-i18n="nav.home" href="index.html">Início</a>
-          <a data-i18n="nav.about" href="sobre.html">Sobre</a>
-          <a data-i18n="nav.products" href="produtos.html">Produtos</a>
-          <a data-i18n="nav.engineering" href="engenharia.html">Engenharia</a>
-          <a data-i18n="nav.contact" href="contato.html">Contato</a>
+          <a href="index.html">Home</a>
+          <a href="sobre.html">Sobre</a>
+          <a href="engenharia.html">Engenharia</a>
+          <a href="produtos.html">Produtos</a>
+          <a href="contato.html">Contato</a>
+          <a href="cadastro.html" class="button outline">Cadastro</a>
         </nav>
-
-        <div class="header-actions">
-          <div class="language-switcher" aria-label="Mudar idioma">
-            <button type="button" data-lang="pt">PT</button>
-            <button type="button" data-lang="en">EN</button>
-            <button type="button" data-lang="es">ES</button>
-          </div>
-          <a href="cadastro.html" class="button outline" data-i18n="nav.register">Cadastro</a>
-          <button class="nav-toggle" aria-label="Abrir navegação" data-toggle="nav"></button>
-        </div>
       </div>
     </header>
 
     <main>
-      <section class="hero hero-medium">
+      <section class="hero hero-small">
         <div class="container hero-copy">
-          <span class="eyebrow">Contato estratégico</span>
-          <h1>Fale com nossa equipe técnica e apresente seu desafio industrial.</h1>
-          <p>Estamos prontos para desenvolver soluções sob medida para processos, automação e plantas piloto em setores regulados.</p>
+          <span class="eyebrow">Contato</span>
+          <h1>Fale com a equipe GREENFARMS para discutir projetos e soluções técnicas.</h1>
+          <p>Recebemos consultas corporativas e propostas de desenvolvimento industrial com foco em resultados técnicos.</p>
         </div>
       </section>
 
-      <section class="section section-split">
-        <div class="container section-grid">
-          <div class="info-card">
-            <p class="section-label">Localização</p>
-            <p>Avenida 5, 154 – Centro</p>
-            <p>Orlândia – São Paulo | CEP: 14620-027</p>
-          </div>
-          <div class="info-card">
-            <p class="section-label">Contato</p>
-            <p>WhatsApp: +55 16 98134-9898</p>
-            <p>E-mail: contato@greenfarms.com.br</p>
-          </div>
+      <section class="section section-grid">
+        <div class="info-card">
+          <span class="section-label">Informações</span>
+          <h2>Localização e contato direto.</h2>
+          <p>Avenida 5, 154 – Centro, Orlândia – São Paulo, CEP 14620-027.</p>
+          <ul class="value-list">
+            <li>Telefone/WhatsApp: +55 16 98134-9898</li>
+            <li>E-mail: contato@greenfarms.com.br</li>
+            <li>Atuação: agro, farmacêutico, alimentício, químico e biotecnologia</li>
+          </ul>
+        </div>
+        <div class="form-card">
+          <span class="section-label">Mensagem técnica</span>
+          <h3>Envie sua solicitação para análise.</h3>
+          <form data-email-target="contato@greenfarms.com.br">
+            <div class="form-grid">
+              <input name="nome" type="text" placeholder="Nome completo" required>
+              <input name="empresa" type="text" placeholder="Empresa / unidade" required>
+              <input name="telefone" type="tel" placeholder="Telefone / WhatsApp" required>
+              <input name="email" type="email" placeholder="E-mail profissional" required>
+              <textarea name="mensagem" rows="5" placeholder="Descrição do projeto ou demanda" required></textarea>
+            </div>
+            <button type="submit" class="button primary">Enviar mensagem</button>
+            <p class="form-status" aria-live="polite"></p>
+          </form>
         </div>
       </section>
 
       <section class="section section-panel">
-        <div class="container section-grid">
-          <div class="form-card">
-            <span class="section-label">Formulário de contato</span>
-            <p>Compartilhe os detalhes do seu projeto e nossa equipe retornará com uma proposta técnica alinhada ao seu desafio.</p>
-            <form data-endpoint="contact">
-              <div class="form-grid">
-                <input name="name" type="text" placeholder="Nome completo" required>
-                <input name="company" type="text" placeholder="Empresa / unidade" required>
-                <input name="email" type="email" placeholder="E-mail profissional" required>
-                <input name="phone" type="tel" placeholder="Telefone / WhatsApp" required>
-                <textarea name="message" rows="5" placeholder="Descreva seu desafio industrial" required></textarea>
-              </div>
-              <button type="submit" class="button primary">Enviar mensagem</button>
-              <p class="form-status" aria-live="polite"></p>
-            </form>
-          </div>
-
-          <div class="map-panel">
-            <div class="map-frame">
-              <span class="map-title">Localização operações Green Farms</span>
-            </div>
-          </div>
+        <div class="container map-panel">
+          <span class="section-label">Localização</span>
+          <h3>Orlândia – São Paulo</h3>
+          <p>Posicionamento estratégico para atendimento industrial em regiões produtoras e centros tecnológicos.</p>
         </div>
       </section>
     </main>
@@ -93,20 +79,20 @@
     <footer class="site-footer">
       <div class="container footer-grid">
         <div>
-          <strong>GREEN FARMS</strong>
-          <p>Engenharia e biotecnologia industrial premium.</p>
+          <strong>GREENFARMS</strong>
+          <p>Engenharia industrial e desenvolvimento tecnológico para agro, farmacêutico, alimentício, químico e biotecnologia.</p>
         </div>
-        <nav class="footer-nav">
+        <div class="footer-links">
+          <a href="index.html">Home</a>
           <a href="sobre.html">Sobre</a>
-          <a href="produtos.html">Produtos</a>
           <a href="engenharia.html">Engenharia</a>
-          <a href="index.html">Início</a>
-        </nav>
+          <a href="produtos.html">Produtos</a>
+        </div>
       </div>
     </footer>
   </div>
 
-  <a class="whatsapp-float" href="https://wa.me/5516981349898?text=Ol%C3%A1%2C%20Green%20Farms.%20Preciso%20de%20uma%20solu%C3%A7%C3%A3o%20industrial." target="_blank" rel="noopener noreferrer">WhatsApp</a>
+  <a class="whatsapp-float" href="https://wa.me/5516981349898" target="_blank" rel="noopener noreferrer">WhatsApp</a>
   <script src="app.js"></script>
 </body>
 </html>
