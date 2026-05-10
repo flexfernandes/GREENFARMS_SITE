@@ -3,96 +3,462 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Contato | GREENFARMS</title>
-  <meta name="description" content="Entre em contato com a GREENFARMS para projetos industriais, engenharia aplicada e desenvolvimento tecnológico.">
-  <link rel="stylesheet" href="styles.css">
+  <meta name="description" content="Contato GREENFARMS — Solicite orçamento, tire dúvidas ou inicie seu projeto industrial.">
+  <title>Contato · GREENFARMS</title>
+  <link rel="icon" type="image/png" href="images/logo.png">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .contato-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.4fr;
+      gap: 64px;
+      align-items: start;
+    }
+
+    .contato-info h2 { font-size: clamp(1.8rem,3vw,2.5rem); margin-bottom:24px; }
+    .contato-info > p { color:var(--gf-text-mid); font-size:0.95rem; line-height:1.9; font-weight:300; margin-bottom:40px; }
+
+    .info-block {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    .info-item {
+      display: flex;
+      gap: 20px;
+      align-items: flex-start;
+      padding: 24px;
+      background: var(--gf-dark-2);
+      border: 1px solid var(--gf-border-dim);
+      border-radius: var(--gf-radius-lg);
+      transition: border-color var(--gf-transition);
+    }
+    .info-item:hover { border-color: var(--gf-border); }
+
+    .info-item__icon {
+      width: 44px;
+      height: 44px;
+      background: var(--gf-wire);
+      border-radius: var(--gf-radius);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--gf-accent);
+      flex-shrink: 0;
+    }
+
+    .info-item__content h4 {
+      font-family: var(--gf-mono);
+      font-size: 0.65rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--gf-text-dim);
+      margin-bottom: 8px;
+    }
+
+    .info-item__content p,
+    .info-item__content a {
+      font-size: 0.9rem;
+      color: var(--gf-text-mid);
+      font-weight: 300;
+      line-height: 1.7;
+      display: block;
+      transition: color var(--gf-transition);
+    }
+
+    .info-item__content a:hover { color: var(--gf-accent); }
+
+    /* Form card */
+    .form-card {
+      background: var(--gf-dark-2);
+      border: 1px solid var(--gf-border-dim);
+      border-radius: var(--gf-radius-lg);
+      padding: 48px;
+    }
+
+    .form-card h3 {
+      font-size: 1.4rem;
+      margin-bottom: 8px;
+    }
+
+    .form-card > p {
+      color: var(--gf-text-dim);
+      font-size: 0.85rem;
+      margin-bottom: 36px;
+      font-weight: 300;
+    }
+
+    .form-body {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    /* Map */
+    .map-container {
+      width: 100%;
+      height: 360px;
+      border-radius: var(--gf-radius-lg);
+      overflow: hidden;
+      border: 1px solid var(--gf-border-dim);
+      background: var(--gf-dark-2);
+    }
+
+    .map-container iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+      filter: grayscale(1) invert(0.9) contrast(0.9);
+    }
+
+    /* Solicitação Comercial tab */
+    .form-tabs {
+      display: flex;
+      gap: 0;
+      margin-bottom: 32px;
+      border-bottom: 1px solid var(--gf-border-dim);
+    }
+    .form-tab {
+      padding: 12px 24px;
+      font-family: var(--gf-mono);
+      font-size: 0.65rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--gf-text-dim);
+      border-bottom: 2px solid transparent;
+      margin-bottom: -1px;
+      cursor: pointer;
+      transition: all var(--gf-transition);
+    }
+    .form-tab:hover { color: var(--gf-text-mid); }
+    .form-tab.active { color: var(--gf-accent); border-bottom-color: var(--gf-accent); }
+
+    .form-panel { display: none; }
+    .form-panel.active { display: flex; flex-direction: column; gap: 20px; }
+
+    @media(max-width:1024px){
+      .contato-grid { grid-template-columns: 1fr; gap:40px; }
+    }
+    @media(max-width:768px){
+      .form-card { padding:28px; }
+    }
+  </style>
 </head>
 <body>
-  <div class="page-shell">
-    <header class="site-header">
-      <div class="container header-row">
-        <a class="brand" href="index.html">
-          <img src="images/company_logo.png" alt="Logotipo GREENFARMS" class="brand-logo">
-          <div>
-            <strong class="brand-name">GREENFARMS</strong>
-            <p class="brand-tag">Engenharia e desenvolvimento industrial</p>
-          </div>
-        </a>
-        <button class="nav-toggle" aria-label="Abrir menu" data-toggle="nav"></button>
-        <nav class="site-nav" data-nav>
-          <a href="index.html">Home</a>
-          <a href="sobre.html">Sobre</a>
-          <a href="engenharia.html">Engenharia</a>
-          <a href="produtos.html">Produtos</a>
-          <a href="contato.html">Contato</a>
-          <a href="cadastro.html" class="button outline">Cadastro</a>
-        </nav>
-      </div>
-    </header>
 
-    <main>
-      <section class="hero hero-small">
-        <div class="container hero-copy">
-          <span class="eyebrow">Contato</span>
-          <h1>Fale com a equipe GREENFARMS para discutir projetos e soluções técnicas.</h1>
-          <p>Recebemos consultas corporativas e propostas de desenvolvimento industrial com foco em resultados técnicos.</p>
-        </div>
-      </section>
+<div id="nav-container"></div>
 
-      <section class="section section-grid">
-        <div class="info-card">
-          <span class="section-label">Informações</span>
-          <h2>Localização e contato direto.</h2>
-          <p>Avenida 5, 154 – Centro, Orlândia – São Paulo, CEP 14620-027.</p>
-          <ul class="value-list">
-            <li>Telefone/WhatsApp: +55 16 98134-9898</li>
-            <li>E-mail: contato@greenfarms.com.br</li>
-            <li>Atuação: agro, farmacêutico, alimentício, químico e biotecnologia</li>
-          </ul>
-        </div>
-        <div class="form-card">
-          <span class="section-label">Mensagem técnica</span>
-          <h3>Envie sua solicitação para análise.</h3>
-          <form data-email-target="contato@greenfarms.com.br">
-            <div class="form-grid">
-              <input name="nome" type="text" placeholder="Nome completo" required>
-              <input name="empresa" type="text" placeholder="Empresa / unidade" required>
-              <input name="telefone" type="tel" placeholder="Telefone / WhatsApp" required>
-              <input name="email" type="email" placeholder="E-mail profissional" required>
-              <textarea name="mensagem" rows="5" placeholder="Descrição do projeto ou demanda" required></textarea>
-            </div>
-            <button type="submit" class="button primary">Enviar mensagem</button>
-            <p class="form-status" aria-live="polite"></p>
-          </form>
-        </div>
-      </section>
-
-      <section class="section section-panel">
-        <div class="container map-panel">
-          <span class="section-label">Localização</span>
-          <h3>Orlândia – São Paulo</h3>
-          <p>Posicionamento estratégico para atendimento industrial em regiões produtoras e centros tecnológicos.</p>
-        </div>
-      </section>
-    </main>
-
-    <footer class="site-footer">
-      <div class="container footer-grid">
-        <div>
-          <strong>GREENFARMS</strong>
-          <p>Engenharia industrial e desenvolvimento tecnológico para agro, farmacêutico, alimentício, químico e biotecnologia.</p>
-        </div>
-        <div class="footer-links">
-          <a href="index.html">Home</a>
-          <a href="sobre.html">Sobre</a>
-          <a href="engenharia.html">Engenharia</a>
-          <a href="produtos.html">Produtos</a>
-        </div>
-      </div>
-    </footer>
+<section class="page-hero">
+  <div class="container">
+    <span class="label">Contato</span>
+    <h1>Vamos desenvolver<br>seu projeto</h1>
+    <p>Entre em contato com nossa equipe técnica para discutir seu desafio industrial e iniciar o desenvolvimento da solução.</p>
   </div>
+</section>
 
-  <a class="whatsapp-float" href="https://wa.me/5516981349898" target="_blank" rel="noopener noreferrer">WhatsApp</a>
-  <script src="app.js"></script>
+<section class="section" style="background:var(--gf-dark);">
+  <div class="container">
+    <div class="contato-grid">
+
+      <!-- Info -->
+      <div class="contato-info anim-fade">
+        <span class="label" style="display:block;margin-bottom:16px;">Informações</span>
+        <h2>Como nos encontrar</h2>
+        <p>Nossa equipe está disponível para atender demandas técnicas, solicitações de orçamento, desenvolvimento de projetos e esclarecimento de dúvidas sobre nossas soluções.</p>
+
+        <div class="info-block">
+          <div class="info-item">
+            <div class="info-item__icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+                <path d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+              </svg>
+            </div>
+            <div class="info-item__content">
+              <h4>Endereço</h4>
+              <p>Avenida 5, 154 – Centro<br>CEP: 14620-027<br>Orlândia – São Paulo, Brasil</p>
+            </div>
+          </div>
+
+          <a href="https://wa.me/5516981349898" target="_blank" class="info-item">
+            <div class="info-item__icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413"/>
+              </svg>
+            </div>
+            <div class="info-item__content">
+              <h4>WhatsApp</h4>
+              <p>+55 16 98134-9898</p>
+              <p style="color:var(--gf-accent);font-size:0.78rem;margin-top:4px;">Clique para iniciar conversa →</p>
+            </div>
+          </a>
+
+          <a href="mailto:contato@greenfarms.com.br" class="info-item">
+            <div class="info-item__icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+              </svg>
+            </div>
+            <div class="info-item__content">
+              <h4>E-mail</h4>
+              <a href="mailto:contato@greenfarms.com.br">contato@greenfarms.com.br</a>
+            </div>
+          </a>
+        </div>
+      </div>
+
+      <!-- Form -->
+      <div class="form-card anim-fade anim-delay-2">
+        <h3>Envie sua mensagem</h3>
+        <p>Preencha o formulário e nossa equipe retornará em breve.</p>
+
+        <div class="form-tabs">
+          <button class="form-tab active" data-ftab="contato-rapido">Contato Rápido</button>
+          <button class="form-tab" data-ftab="orcamento">Solicitação Comercial</button>
+          <button class="form-tab" data-ftab="cadastro">Cadastro</button>
+        </div>
+
+        <!-- Contato Rápido -->
+        <div class="form-panel active" id="ftab-contato-rapido">
+          <form data-gf-form data-subject="Contato Rápido — GREENFARMS">
+            <div class="form-body">
+              <div class="form-grid">
+                <div class="form-group">
+                  <label>Nome *</label>
+                  <input type="text" name="Nome" placeholder="Seu nome completo" required>
+                </div>
+                <div class="form-group">
+                  <label>Empresa</label>
+                  <input type="text" name="Empresa" placeholder="Nome da empresa">
+                </div>
+              </div>
+              <div class="form-grid">
+                <div class="form-group">
+                  <label>E-mail *</label>
+                  <input type="email" name="Email" placeholder="seu@email.com" required>
+                </div>
+                <div class="form-group">
+                  <label>Telefone / WhatsApp</label>
+                  <input type="tel" name="Telefone" placeholder="+55 (16) 9XXXX-XXXX">
+                </div>
+              </div>
+              <div class="form-group">
+                <label>Assunto</label>
+                <select name="Assunto">
+                  <option value="">Selecione...</option>
+                  <option>Plantas Piloto</option>
+                  <option>Biorreatores e Bioprocessos</option>
+                  <option>Cisalhador Industrial</option>
+                  <option>Bomba Centrífuga</option>
+                  <option>Cabeçotes Rotativos CIP</option>
+                  <option>Automação Industrial</option>
+                  <option>Outros</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label>Mensagem *</label>
+                <textarea name="Mensagem" placeholder="Descreva seu projeto ou necessidade..." required></textarea>
+              </div>
+              <button type="submit" class="btn btn--primary" style="width:100%;justify-content:center;">
+                Enviar Mensagem
+              </button>
+            </div>
+          </form>
+          <div class="form-success">Mensagem enviada com sucesso! Retornaremos em breve.</div>
+        </div>
+
+        <!-- Solicitação Comercial -->
+        <div class="form-panel" id="ftab-orcamento">
+          <form data-gf-form data-subject="Solicitação Comercial — GREENFARMS">
+            <div class="form-body">
+              <div class="form-grid">
+                <div class="form-group">
+                  <label>Nome *</label>
+                  <input type="text" name="Nome" placeholder="Seu nome" required>
+                </div>
+                <div class="form-group">
+                  <label>Cargo / Função</label>
+                  <input type="text" name="Cargo" placeholder="Ex: Engenheiro de Processos">
+                </div>
+              </div>
+              <div class="form-grid">
+                <div class="form-group">
+                  <label>Empresa *</label>
+                  <input type="text" name="Empresa" placeholder="Razão social" required>
+                </div>
+                <div class="form-group">
+                  <label>CNPJ</label>
+                  <input type="text" name="CNPJ" placeholder="00.000.000/0001-00">
+                </div>
+              </div>
+              <div class="form-grid">
+                <div class="form-group">
+                  <label>E-mail *</label>
+                  <input type="email" name="Email" placeholder="email@empresa.com.br" required>
+                </div>
+                <div class="form-group">
+                  <label>Telefone *</label>
+                  <input type="tel" name="Telefone" placeholder="+55 (XX) XXXXX-XXXX" required>
+                </div>
+              </div>
+              <div class="form-group">
+                <label>Setor Industrial *</label>
+                <select name="Setor" required>
+                  <option value="">Selecione...</option>
+                  <option>Farmacêutico / Biológico</option>
+                  <option>Alimentício / Agroindustrial</option>
+                  <option>Biotecnológico</option>
+                  <option>Químico / Petroquímico</option>
+                  <option>Agropecuário</option>
+                  <option>Outro</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label>Solução de Interesse *</label>
+                <select name="Solucao" required>
+                  <option value="">Selecione...</option>
+                  <option>Planta Piloto</option>
+                  <option>Biorreatores / Bioprocessos</option>
+                  <option>Cisalhador Industrial</option>
+                  <option>Bomba Centrífuga Sanitária</option>
+                  <option>Cabeçotes Rotativos CIP</option>
+                  <option>Automação Industrial</option>
+                  <option>Peças / Componentes Sob Medida</option>
+                  <option>Melhoria de Processo</option>
+                  <option>Outro</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label>Descrição do Projeto *</label>
+                <textarea name="Descricao" placeholder="Descreva o processo, volumes, capacidade, condições operacionais e objetivos do projeto..." style="min-height:140px;" required></textarea>
+              </div>
+              <button type="submit" class="btn btn--primary" style="width:100%;justify-content:center;">
+                Enviar Solicitação Comercial
+              </button>
+            </div>
+          </form>
+          <div class="form-success">Solicitação enviada com sucesso! Nossa equipe técnica retornará em breve.</div>
+        </div>
+
+        <!-- Cadastro -->
+        <div class="form-panel" id="ftab-cadastro">
+          <form data-gf-form data-subject="Cadastro de Cliente — GREENFARMS">
+            <div class="form-body">
+              <div class="form-grid">
+                <div class="form-group">
+                  <label>Nome Completo *</label>
+                  <input type="text" name="Nome" placeholder="Nome completo" required>
+                </div>
+                <div class="form-group">
+                  <label>Cargo</label>
+                  <input type="text" name="Cargo" placeholder="Seu cargo">
+                </div>
+              </div>
+              <div class="form-grid">
+                <div class="form-group">
+                  <label>Razão Social *</label>
+                  <input type="text" name="Razao_Social" placeholder="Razão social da empresa" required>
+                </div>
+                <div class="form-group">
+                  <label>CNPJ *</label>
+                  <input type="text" name="CNPJ" placeholder="00.000.000/0001-00" required>
+                </div>
+              </div>
+              <div class="form-grid">
+                <div class="form-group">
+                  <label>E-mail *</label>
+                  <input type="email" name="Email" placeholder="email@empresa.com.br" required>
+                </div>
+                <div class="form-group">
+                  <label>Telefone *</label>
+                  <input type="tel" name="Telefone" placeholder="+55 (XX) XXXXX-XXXX" required>
+                </div>
+              </div>
+              <div class="form-grid">
+                <div class="form-group">
+                  <label>Cidade *</label>
+                  <input type="text" name="Cidade" placeholder="Cidade" required>
+                </div>
+                <div class="form-group">
+                  <label>Estado *</label>
+                  <select name="Estado" required>
+                    <option value="">UF...</option>
+                    <option>SP</option><option>RJ</option><option>MG</option><option>RS</option>
+                    <option>PR</option><option>SC</option><option>BA</option><option>GO</option>
+                    <option>MT</option><option>MS</option><option>PA</option><option>AM</option>
+                    <option>Outro</option>
+                  </select>
+                </div>
+              </div>
+              <div class="form-group">
+                <label>Setor de Atuação</label>
+                <select name="Setor">
+                  <option value="">Selecione...</option>
+                  <option>Farmacêutico / Biológico</option>
+                  <option>Alimentício / Agroindustrial</option>
+                  <option>Biotecnológico</option>
+                  <option>Químico / Petroquímico</option>
+                  <option>Agropecuário</option>
+                  <option>Outro</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label>Observações</label>
+                <textarea name="Observacoes" placeholder="Informações adicionais sobre sua empresa ou necessidade..."></textarea>
+              </div>
+              <button type="submit" class="btn btn--primary" style="width:100%;justify-content:center;">
+                Enviar Cadastro
+              </button>
+            </div>
+          </form>
+          <div class="form-success">Cadastro enviado com sucesso!</div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MAP -->
+<section class="section--sm" style="background:var(--gf-black);border-top:1px solid var(--gf-border-dim);">
+  <div class="container">
+    <div class="section-header anim-fade" style="margin-bottom:32px;">
+      <div class="section-header__label">
+        <span class="label">Localização</span>
+      </div>
+      <h2>Onde estamos</h2>
+    </div>
+    <div class="map-container anim-fade anim-delay-1">
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3718.5!2d-47.8833!3d-20.7166!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjDCsDQzJzAwLjAiUyA0N8KwNTInNjAuMCJX!5e0!3m2!1spt!2sbr!4v1"
+        allowfullscreen=""
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+        title="GREENFARMS — Orlândia, SP">
+      </iframe>
+    </div>
+    <p style="margin-top:16px;text-align:center;font-size:0.82rem;color:var(--gf-text-dim);">
+      Avenida 5, 154 – Centro · CEP 14620-027 · Orlândia – São Paulo · Brasil
+    </p>
+  </div>
+</section>
+
+<div id="footer-container"></div>
+<div id="wa-float"></div>
+<script src="js/components.js"></script>
+<script src="js/main.js"></script>
+<script>
+  // Form tabs
+  document.querySelectorAll('.form-tab').forEach(tab => {
+    tab.addEventListener('click', () => {
+      const target = tab.dataset.ftab;
+      document.querySelectorAll('.form-tab').forEach(t => t.classList.remove('active'));
+      document.querySelectorAll('.form-panel').forEach(p => p.classList.remove('active'));
+      tab.classList.add('active');
+      document.getElementById('ftab-' + target).classList.add('active');
+    });
+  });
+</script>
 </body>
 </html>

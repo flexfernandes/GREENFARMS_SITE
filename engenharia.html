@@ -3,123 +3,336 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Engenharia & Soluções | GREENFARMS</title>
-  <meta name="description" content="Conheça as soluções de engenharia, automação e desenvolvimento de processos da GREENFARMS.">
-  <link rel="stylesheet" href="styles.css">
+  <meta name="description" content="Engenharia e Soluções GREENFARMS — Bioprocessos, automação industrial, componentes especiais e sistemas CIP.">
+  <title>Engenharia &amp; Soluções · GREENFARMS</title>
+  <link rel="icon" type="image/png" href="images/logo.png">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .solucoes-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: start;
+    }
+    .solucao-card {
+      background: var(--gf-dark-2);
+      border: 1px solid var(--gf-border-dim);
+      border-radius: var(--gf-radius-lg);
+      overflow: hidden;
+      transition: border-color var(--gf-transition);
+    }
+    .solucao-card:hover { border-color: var(--gf-border); }
+    .solucao-card__img {
+      aspect-ratio: 16/9;
+      overflow: hidden;
+    }
+    .solucao-card__img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: saturate(0.5) contrast(1.1);
+      transition: transform 0.6s ease;
+    }
+    .solucao-card:hover .solucao-card__img img { transform: scale(1.04); }
+    .solucao-card__body { padding: 32px; }
+    .solucao-card__body .tag { margin-bottom: 16px; }
+    .solucao-card__body h3 { font-size: 1.3rem; margin-bottom: 16px; }
+    .solucao-card__body p { color: var(--gf-text-mid); font-size: 0.9rem; line-height: 1.85; font-weight: 300; }
+    .solucao-card__specs {
+      margin-top: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .spec-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 0.82rem;
+      color: var(--gf-text-dim);
+    }
+    .spec-row::before {
+      content: '';
+      width: 4px; height: 4px;
+      border-radius: 50%;
+      background: var(--gf-green-light);
+      flex-shrink: 0;
+    }
+
+    /* Spray Ball destaque */
+    .spray-section {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: center;
+    }
+    .spray-image {
+      border-radius: var(--gf-radius-lg);
+      overflow: hidden;
+    }
+    .spray-image img {
+      width: 100%;
+      filter: saturate(0.6) contrast(1.1);
+    }
+    .spray-text h2 { font-size: clamp(1.8rem, 3vw, 2.5rem); margin-bottom: 24px; }
+    .spray-text p { color: var(--gf-text-mid); font-size: 0.95rem; line-height: 1.9; font-weight: 300; margin-bottom: 16px; }
+    .spray-metrics {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      margin-top: 32px;
+    }
+    .spray-metric {
+      background: var(--gf-dark-3);
+      border: 1px solid var(--gf-border-dim);
+      border-radius: var(--gf-radius);
+      padding: 20px;
+      text-align: center;
+    }
+    .spray-metric strong {
+      display: block;
+      font-family: var(--gf-head);
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--gf-accent);
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+    .spray-metric span { font-size: 0.78rem; color: var(--gf-text-dim); }
+
+    /* Process strip */
+    .process-strip {
+      display: flex;
+      gap: 0;
+      position: relative;
+    }
+    .process-step {
+      flex: 1;
+      padding: 32px 24px;
+      background: var(--gf-dark-2);
+      border: 1px solid var(--gf-border-dim);
+      border-right: none;
+      position: relative;
+    }
+    .process-step:first-child { border-radius: var(--gf-radius-lg) 0 0 var(--gf-radius-lg); }
+    .process-step:last-child { border-right: 1px solid var(--gf-border-dim); border-radius: 0 var(--gf-radius-lg) var(--gf-radius-lg) 0; }
+    .process-step__num {
+      font-family: var(--gf-mono);
+      font-size: 0.65rem;
+      letter-spacing: 0.15em;
+      color: var(--gf-text-dim);
+      margin-bottom: 16px;
+    }
+    .process-step h3 { font-size: 0.95rem; margin-bottom: 10px; }
+    .process-step p { font-size: 0.82rem; color: var(--gf-text-dim); line-height: 1.7; font-weight: 300; }
+
+    @media(max-width:1024px){
+      .solucoes-grid { grid-template-columns: 1fr; }
+      .spray-section { grid-template-columns: 1fr; gap: 40px; }
+      .process-strip { flex-direction: column; }
+      .process-step { border-right: 1px solid var(--gf-border-dim); border-bottom: none; border-radius: 0; }
+      .process-step:first-child { border-radius: var(--gf-radius-lg) var(--gf-radius-lg) 0 0; }
+      .process-step:last-child { border-bottom: 1px solid var(--gf-border-dim); border-radius: 0 0 var(--gf-radius-lg) var(--gf-radius-lg); }
+    }
+    @media(max-width:768px){
+      .spray-metrics { grid-template-columns: 1fr; }
+    }
+  </style>
 </head>
 <body>
-  <div class="page-shell">
-    <header class="site-header">
-      <div class="container header-row">
-        <a class="brand" href="index.html">
-          <img src="images/company_logo.png" alt="Logotipo GREENFARMS" class="brand-logo">
-          <div>
-            <strong class="brand-name">GREENFARMS</strong>
-            <p class="brand-tag">Engenharia e desenvolvimento industrial</p>
-          </div>
-        </a>
-        <button class="nav-toggle" aria-label="Abrir menu" data-toggle="nav"></button>
-        <nav class="site-nav" data-nav>
-          <a href="index.html">Home</a>
-          <a href="sobre.html">Sobre</a>
-          <a href="engenharia.html">Engenharia</a>
-          <a href="produtos.html">Produtos</a>
-          <a href="contato.html">Contato</a>
-          <a href="cadastro.html" class="button outline">Cadastro</a>
-        </nav>
-      </div>
-    </header>
 
-    <main>
-      <section class="hero hero-small hero-grid">
-        <div class="hero-copy">
-          <span class="eyebrow">Engenharia e soluções</span>
-          <h1>Projetos técnicos para processos industriais e automação aplicada.</h1>
-          <p>GREENFARMS combina análise, desenvolvimento e implementação para tornar viáveis soluções industriais complexas.</p>
-        </div>
-        <div class="hero-visual">
-          <img src="images/Cabecote_Rotativo_Produto_Greenfarms.jpg" alt="Engenharia de produto industrial GREENFARMS">
-          <div class="hero-tag">Automação e desenvolvimento técnico</div>
-        </div>
-      </section>
+<div id="nav-container"></div>
 
-      <section class="section section-grid">
-        <div>
-          <span class="section-label">Competências</span>
-          <h2>Soluções técnicas com foco em eficiência, confiabilidade e desempenho.</h2>
-          <p>Nossa engenharia contempla processos, equipamentos, automação e gestão de projetos industriais.</p>
-        </div>
-        <div class="mini-card">
-          <span>Automação industrial</span>
-          <p>Integração de controle, instrumentação e sistemas para operação segura e monitorada.</p>
-        </div>
-      </section>
-
-      <section class="section section-panel">
-        <div class="container cards-grid">
-          <div class="info-card">
-            <strong>Bioprocessos</strong>
-            <p>Desenvolvimento e otimização de processos contínuos e descontínuos para produção técnica.</p>
-          </div>
-          <div class="info-card">
-            <strong>Plantas piloto</strong>
-            <p>Montagem de células de validação, teste de escalabilidade e transição para produção.</p>
-          </div>
-          <div class="info-card">
-            <strong>Equipamentos especiais</strong>
-            <p>Projetos de equipamentos sob medida para aplicações com requisitos técnicos específicos.</p>
-          </div>
-        </div>
-      </section>
-
-      <section class="section section-split">
-        <div class="container section-grid">
-          <div class="info-card">
-            <span class="section-label">Processo de trabalho</span>
-            <h3>Metodologia clara, resultados técnicos e entregas verificáveis.</h3>
-            <ul class="value-list">
-              <li>Análise de contexto e requisitos</li>
-              <li>Desenvolvimento de solução técnica</li>
-              <li>Validação e ajustes</li>
-              <li>Implementação com acompanhamento</li>
-            </ul>
-          </div>
-          <div class="info-card">
-            <span class="section-label">Diferencial</span>
-            <p>Priorizamos soluções robustas, compatíveis com normas e que possam ser replicadas em ambientes industriais exigentes.</p>
-          </div>
-        </div>
-      </section>
-
-      <section class="section section-cta">
-        <div class="container cta-card">
-          <div>
-            <span class="section-label">Contato técnico</span>
-            <h2>Precisando de um projeto industrial ou estudo de viabilidade?</h2>
-            <p>Conversamos sobre requisitos técnicos e etapas de desenvolvimento.</p>
-          </div>
-          <a class="button primary" href="contato.html">Solicitar contato</a>
-        </div>
-      </section>
-    </main>
-
-    <footer class="site-footer">
-      <div class="container footer-grid">
-        <div>
-          <strong>GREENFARMS</strong>
-          <p>Engenharia industrial e desenvolvimento tecnológico para agro, farmacêutico, alimentício, químico e biotecnologia.</p>
-        </div>
-        <div class="footer-links">
-          <a href="index.html">Home</a>
-          <a href="sobre.html">Sobre</a>
-          <a href="produtos.html">Produtos</a>
-          <a href="contato.html">Contato</a>
-        </div>
-      </div>
-    </footer>
+<section class="page-hero">
+  <div class="container">
+    <span class="label">Engenharia &amp; Soluções</span>
+    <h1>Soluções técnicas<br>para processos complexos</h1>
+    <p>Desenvolvemos equipamentos, sistemas e componentes industriais sob medida com foco em precisão, confiabilidade e desempenho operacional.</p>
   </div>
+</section>
 
-  <a class="whatsapp-float" href="https://wa.me/5516981349898" target="_blank" rel="noopener noreferrer">WhatsApp</a>
-  <script src="app.js"></script>
+<!-- PROCESSO DE DESENVOLVIMENTO -->
+<section class="section" style="background:var(--gf-dark);border-bottom:1px solid var(--gf-border-dim);">
+  <div class="container">
+    <div class="section-header anim-fade">
+      <div class="section-header__label">
+        <span class="label">Metodologia</span>
+      </div>
+      <h2>Como desenvolvemos</h2>
+    </div>
+    <div class="process-strip anim-fade">
+      <div class="process-step">
+        <div class="process-step__num">01</div>
+        <h3>Levantamento Técnico</h3>
+        <p>Análise detalhada do processo, requisitos operacionais, condições de contorno e objetivos do projeto.</p>
+      </div>
+      <div class="process-step">
+        <div class="process-step__num">02</div>
+        <h3>Engenharia de Projeto</h3>
+        <p>Desenvolvimento do projeto técnico, dimensionamento, seleção de materiais e definição de parâmetros.</p>
+      </div>
+      <div class="process-step">
+        <div class="process-step__num">03</div>
+        <h3>Fabricação</h3>
+        <p>Produção com controle dimensional rigoroso, materiais certificados e rastreabilidade de processo.</p>
+      </div>
+      <div class="process-step">
+        <div class="process-step__num">04</div>
+        <h3>Validação &amp; Entrega</h3>
+        <p>Testes operacionais, validação de performance e suporte técnico durante a implantação.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SOLUÇÕES PRINCIPAIS -->
+<section class="section" id="bioprocessos" style="background:var(--gf-black);">
+  <div class="container">
+    <div class="section-header anim-fade">
+      <div class="section-header__label">
+        <span class="label">Principais Soluções</span>
+      </div>
+      <h2>Áreas de desenvolvimento</h2>
+    </div>
+
+    <div class="solucoes-grid">
+      <div class="solucao-card anim-fade">
+        <div class="solucao-card__img">
+          <img src="images/biorreatores.jpg" alt="Bioprocessos e Biorreatores">
+        </div>
+        <div class="solucao-card__body">
+          <span class="tag">Bioprocessos</span>
+          <h3>Biorreatores e Sistemas Integrados</h3>
+          <p>Desenvolvimento de biorreatores e sistemas integrados adaptados às necessidades específicas de cada processo de fermentação ou biotecnológico. Cada sistema é concebido respeitando as características do processo, volume de produção e requisitos sanitários.</p>
+          <div class="solucao-card__specs">
+            <div class="spec-row">Fermentação aeróbica e anaeróbica</div>
+            <div class="spec-row">Sistemas de controle e monitoramento</div>
+            <div class="spec-row">Materiais certificados para aplicação biológica</div>
+            <div class="spec-row">Sanitização e CIP integrados</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="solucao-card anim-fade anim-delay-1">
+        <div class="solucao-card__img">
+          <img src="images/planta-piloto.jpg" alt="Plantas Piloto">
+        </div>
+        <div class="solucao-card__body">
+          <span class="tag">Plantas Piloto</span>
+          <h3>Desenvolvimento Industrial em Escala Reduzida</h3>
+          <p>Plantas piloto industriais projetadas para validação de processos, testes operacionais e desenvolvimento de produtos antes do scale-up. Reduzimos riscos e otimizamos investimentos na transição para produção em grande escala.</p>
+          <div class="solucao-card__specs">
+            <div class="spec-row">Projeto personalizado por processo</div>
+            <div class="spec-row">Flexibilidade operacional e expansão futura</div>
+            <div class="spec-row">Automação e controle integrados</div>
+            <div class="spec-row">Suporte técnico completo</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SPRAY BALL DESTAQUE -->
+<section class="section" id="automacao" style="background:var(--gf-dark);border-top:1px solid var(--gf-border-dim);border-bottom:1px solid var(--gf-border-dim);">
+  <div class="container">
+    <div class="spray-section">
+      <div class="spray-image anim-fade">
+        <img src="images/cabecote-rotativo.jpg" alt="Cabeçote Rotativo GREENFARMS">
+      </div>
+      <div class="spray-text anim-fade anim-delay-2">
+        <span class="label" style="display:block;margin-bottom:16px;">Produto GREENFARMS</span>
+        <h2>Cabeçotes Rotativos para Sistemas CIP</h2>
+        <p>Nossos Cabeçotes Rotativos (Spray Balls) são projetados para garantir higienização completa e eficiente em processos CIP. Com rotação 3D 360°, eliminam pontos cegos, reduzindo o consumo de água, produtos químicos e tempo de limpeza.</p>
+        <p>Fabricados em aço inoxidável de alta resistência, oferecem controle preciso de velocidade, pressão ajustável e desempenho superior para as indústrias alimentícia, farmacêutica, biotecnológica e química.</p>
+        <div class="spray-metrics">
+          <div class="spray-metric">
+            <strong>360°</strong>
+            <span>Cobertura de rotação 3D</span>
+          </div>
+          <div class="spray-metric">
+            <strong>CIP</strong>
+            <span>Clean In Place — sem desmontagem</span>
+          </div>
+          <div class="spray-metric">
+            <strong>Inox</strong>
+            <span>Aço inoxidável de alta resistência</span>
+          </div>
+          <div class="spray-metric">
+            <strong>Custom</strong>
+            <span>Modelos personalizados por aplicação</span>
+          </div>
+        </div>
+        <div style="margin-top:32px;">
+          <a href="contato.html" class="btn btn--primary">Solicitar Especificações</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COMPONENTES ESPECIAIS -->
+<section class="section" style="background:var(--gf-black);">
+  <div class="container">
+    <div class="section-header anim-fade">
+      <div class="section-header__label">
+        <span class="label">Fabricação</span>
+      </div>
+      <h2>Peças e componentes sob medida</h2>
+      <p>Produzimos peças e componentes a partir de projetos ou modelos de peças existentes, com fidelidade dimensional e alta confiabilidade operacional.</p>
+    </div>
+
+    <div class="grid-3">
+      <div class="card anim-fade">
+        <div class="card__icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <circle cx="12" cy="12" r="3"/><path d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/>
+          </svg>
+        </div>
+        <h3>Usinagem de Precisão</h3>
+        <p>Peças usinadas com tolerâncias dimensionais rigorosas para aplicações industriais que exigem alta precisão construtiva.</p>
+      </div>
+      <div class="card anim-fade anim-delay-1">
+        <div class="card__icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1zM4 22v-7"/>
+          </svg>
+        </div>
+        <h3>Materiais Certificados</h3>
+        <p>Seleção criteriosa de materiais — ligas inoxidáveis, polímeros técnicos e materiais especiais — adequados à aplicação e ao ambiente de processo.</p>
+      </div>
+      <div class="card anim-fade anim-delay-2">
+        <div class="card__icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+          </svg>
+        </div>
+        <h3>Fidelidade Dimensional</h3>
+        <p>Reprodução fiel de peças existentes ou desenvolvimento a partir de projetos, com controle metrológico e rastreabilidade de conformidade.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="section--sm" style="background:var(--gf-dark);border-top:1px solid var(--gf-border-dim);">
+  <div class="container">
+    <div class="cta-banner" style="background:var(--gf-dark-3);border:1px solid var(--gf-border);border-radius:var(--gf-radius-lg);padding:64px;display:flex;align-items:center;justify-content:space-between;gap:48px;">
+      <div>
+        <span class="label" style="display:block;margin-bottom:16px;">Próximo Passo</span>
+        <h2 style="font-size:clamp(1.6rem,3vw,2.2rem);max-width:540px;">Seu processo tem desafios técnicos?<br><em style="font-style:normal;color:var(--gf-accent);">Vamos desenvolver a solução.</em></h2>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:12px;flex-shrink:0;">
+        <a href="contato.html" class="btn btn--primary">Solicitar Orçamento</a>
+        <a href="inovacoes.html" class="btn btn--outline">Ver Inovações</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div id="footer-container"></div>
+<div id="wa-float"></div>
+<script src="js/components.js"></script>
+<script src="js/main.js"></script>
 </body>
 </html>

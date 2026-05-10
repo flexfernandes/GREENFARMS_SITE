@@ -3,122 +3,210 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sobre a GREENFARMS | Engenharia & Pesquisa Aplicada</title>
-  <meta name="description" content="Conheça a GREENFARMS e sua equipe técnica dedicada a engenharia industrial, bioprocessos e desenvolvimento de soluções sob medida.">
-  <link rel="stylesheet" href="styles.css">
+  <meta name="description" content="Sobre a GREENFARMS — empresa de pesquisa, desenvolvimento e engenharia industrial aplicada.">
+  <title>Sobre a Empresa · GREENFARMS</title>
+  <link rel="icon" type="image/png" href="images/logo.png">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .sobre-split {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: start;
+    }
+    .sobre-split img {
+      width: 100%;
+      border-radius: var(--gf-radius-lg);
+      filter: saturate(0.6) contrast(1.1);
+    }
+    .sobre-text h2 { font-size: clamp(1.8rem,3vw,2.6rem); margin-bottom:24px; }
+    .sobre-text p { color:var(--gf-text-mid); font-size:0.95rem; line-height:1.9; font-weight:300; margin-bottom:16px; }
+
+    .mvv-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:24px; }
+    .mvv-card {
+      background: var(--gf-dark-2);
+      border: 1px solid var(--gf-border-dim);
+      border-radius: var(--gf-radius-lg);
+      padding: 36px 28px;
+    }
+    .mvv-card__label {
+      font-family: var(--gf-mono);
+      font-size: 0.65rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gf-accent);
+      margin-bottom: 16px;
+    }
+    .mvv-card h3 { font-size: 1.15rem; margin-bottom: 16px; }
+    .mvv-card p { color: var(--gf-text-mid); font-size: 0.88rem; line-height: 1.85; font-weight:300; }
+
+    .valores-list {
+      display: grid;
+      grid-template-columns: repeat(4,1fr);
+      gap: 16px;
+    }
+    .valor-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 16px;
+      background: var(--gf-dark-2);
+      border: 1px solid var(--gf-border-dim);
+      border-radius: var(--gf-radius);
+    }
+    .valor-dot { width:6px; height:6px; border-radius:50%; background:var(--gf-green-light); flex-shrink:0; }
+    .valor-item span { font-size: 0.85rem; color: var(--gf-text-mid); }
+
+    .viemos-banner {
+      background: var(--gf-dark-3);
+      border: 1px solid var(--gf-border);
+      border-radius: var(--gf-radius-lg);
+      padding: 72px 64px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .viemos-banner::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at 50% 50%, rgba(61,92,58,0.15) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .viemos-banner h2 { font-size: clamp(2rem,4vw,3.2rem); margin-bottom:20px; }
+    .viemos-banner h2 em { font-style:normal; color:var(--gf-accent); }
+    .viemos-banner p { color:var(--gf-text-mid); max-width:560px; margin:0 auto; font-size:1rem; line-height:1.8; font-weight:300; }
+
+    .team-section p { color:var(--gf-text-mid); font-size:0.95rem; line-height:1.9; font-weight:300; max-width:680px; }
+
+    @media(max-width:1024px){
+      .sobre-split { grid-template-columns:1fr; gap:40px; }
+      .mvv-grid { grid-template-columns:1fr; }
+      .valores-list { grid-template-columns:repeat(2,1fr); }
+      .viemos-banner { padding:48px 32px; }
+    }
+    @media(max-width:768px){
+      .valores-list { grid-template-columns:1fr; }
+    }
+  </style>
 </head>
 <body>
-  <div class="page-shell">
-    <header class="site-header">
-      <div class="container header-row">
-        <a class="brand" href="index.html">
-          <img src="images/company_logo.png" alt="Logotipo GREENFARMS" class="brand-logo">
-          <div>
-            <strong class="brand-name">GREENFARMS</strong>
-            <p class="brand-tag">Engenharia e desenvolvimento industrial</p>
-          </div>
-        </a>
-        <button class="nav-toggle" aria-label="Abrir menu" data-toggle="nav"></button>
-        <nav class="site-nav" data-nav>
-          <a href="index.html">Home</a>
-          <a href="sobre.html">Sobre</a>
-          <a href="engenharia.html">Engenharia</a>
-          <a href="produtos.html">Produtos</a>
-          <a href="contato.html">Contato</a>
-          <a href="cadastro.html" class="button outline">Cadastro</a>
-        </nav>
-      </div>
-    </header>
 
-    <main>
-      <section class="hero hero-small hero-grid">
-        <div class="hero-copy">
-          <span class="eyebrow">Sede técnica</span>
-          <h1>GREENFARMS é uma empresa de engenharia e pesquisa aplicada para processos industriais.</h1>
-          <p>Desenvolvemos soluções técnicas para agro, farmacêutica, alimentícia, biotecnologia e química, com foco em confiabilidade e resultado técnico.</p>
-        </div>
-        <div class="hero-visual">
-          <img src="images/Biorreatores_Projeto_greenfarms.jpg" alt="Pesquisa aplicada e planta piloto GREENFARMS">
-          <div class="hero-tag">Pesquisa e desenvolvimento industrial</div>
-        </div>
-      </section>
+<div id="nav-container"></div>
 
-      <section class="section section-grid">
-        <div>
-          <span class="section-label">Visão estratégica</span>
-          <h2>Viemos para inovar e permanecer.</h2>
-          <p>Nossa atuação combina engenharia, desenvolvimento tecnológico e pesquisa aplicada para elevar a performance de processos industriais.</p>
-        </div>
-        <div class="mini-card">
-          <span>Equipe técnica</span>
-          <p>Engenheiros, especialistas em processos industriais, projetistas e profissionais de desenvolvimento técnico atuando em conjunto.</p>
-        </div>
-      </section>
-
-      <section class="section section-panel">
-        <div class="container cards-grid">
-          <div class="info-card">
-            <strong>Missão</strong>
-            <p>Desenvolver equipamentos, componentes e soluções industriais sob medida, com engenharia aplicada para garantir eficiência, segurança e confiabilidade operacional.</p>
-          </div>
-          <div class="info-card">
-            <strong>Visão</strong>
-            <p>Ser referência em soluções industriais e desenvolvimento tecnológico aplicado, reconhecida pela capacidade técnica e compromisso com a evolução de processos.</p>
-          </div>
-          <div class="info-card">
-            <strong>Valores</strong>
-            <p>Inovação aplicada, tecnologia, engenharia, qualidade, precisão, responsabilidade técnica, ética, transparência e confiança de longo prazo.</p>
-          </div>
-        </div>
-      </section>
-
-      <section class="section section-split">
-        <div class="container section-grid">
-          <div class="info-card">
-            <span class="section-label">Como atuamos</span>
-            <h3>Desenvolvimento técnico com etapas definidas de análise, projeto e implementação.</h3>
-            <p>Trabalhamos com escopo claro, validação técnica e entregas orientadas para operação industrial sustentável.</p>
-          </div>
-          <div class="info-card">
-            <span class="section-label">Compromisso</span>
-            <ul class="value-list">
-              <li>Responsabilidade técnica</li>
-              <li>Comunicação direta</li>
-              <li>Foco em solução técnica</li>
-              <li>Entrega com qualidade operacional</li>
-            </ul>
-          </div>
-        </div>
-      </section>
-
-      <section class="section section-cta">
-        <div class="container cta-card">
-          <div>
-            <span class="section-label">Contato institucional</span>
-            <h2>Se sua operação precisa de desenvolvimento técnico, estamos prontos para avançar.</h2>
-          </div>
-          <a class="button primary" href="contato.html">Falar com a equipe</a>
-        </div>
-      </section>
-    </main>
-
-    <footer class="site-footer">
-      <div class="container footer-grid">
-        <div>
-          <strong>GREENFARMS</strong>
-          <p>Engenharia industrial e desenvolvimento tecnológico para agro, farmacêutico, alimentício, químico e biotecnologia.</p>
-        </div>
-        <div class="footer-links">
-          <a href="index.html">Home</a>
-          <a href="engenharia.html">Engenharia</a>
-          <a href="produtos.html">Produtos</a>
-          <a href="contato.html">Contato</a>
-        </div>
-      </div>
-    </footer>
+<!-- HERO -->
+<section class="page-hero">
+  <div class="container">
+    <span class="label">Sobre a Empresa</span>
+    <h1>Engenharia aplicada.<br>Desenvolvimento real.</h1>
+    <p>A GREENFARMS é uma empresa de pesquisa e desenvolvimento voltada ao desenvolvimento de soluções industriais personalizadas para setores de alta complexidade técnica.</p>
   </div>
+</section>
 
-  <a class="whatsapp-float" href="https://wa.me/5516981349898" target="_blank" rel="noopener noreferrer">WhatsApp</a>
-  <script src="app.js"></script>
+<!-- SOBRE SPLIT -->
+<section class="section" style="background:var(--gf-dark);border-bottom:1px solid var(--gf-border-dim);">
+  <div class="container">
+    <div class="sobre-split">
+      <div class="anim-fade">
+        <img src="images/biorreatores.jpg" alt="Instalações GREENFARMS">
+      </div>
+      <div class="sobre-text anim-fade anim-delay-2">
+        <span class="label" style="display:block;margin-bottom:16px;">Nossa História</span>
+        <h2>Mais do que uma indústria</h2>
+        <p>A GREENFARMS nasceu da necessidade de oferecer ao mercado industrial soluções técnicas reais, desenvolvidas com engenharia aplicada e comprometimento com o resultado operacional dos nossos clientes.</p>
+        <p>Somos uma equipe formada por engenheiros e especialistas em processos industriais com foco em pesquisa e desenvolvimento, bioprocessos, plantas piloto, automação e desenvolvimento de equipamentos especiais.</p>
+        <p>Atuamos nos setores agropecuário, farmacêutico, alimentício, biotecnológico e químico, sempre com o objetivo de transformar desafios industriais em soluções funcionais, eficientes e escaláveis.</p>
+        <p>Na GREENFARMS, cada projeto é tratado como um desenvolvimento específico — porque acreditamos que soluções industriais verdadeiras exigem engenharia real, não produtos de prateleira.</p>
+        <div style="margin-top:32px;">
+          <a href="engenharia.html" class="btn btn--primary">Nossas Soluções</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VIEMOS PARA INOVAR -->
+<section class="section" style="background:var(--gf-black);">
+  <div class="container">
+    <div class="viemos-banner anim-fade">
+      <span class="label" style="display:block;margin-bottom:20px;">Posicionamento</span>
+      <h2>Viemos para <em>inovar</em><br>e permanecer</h2>
+      <p>Não somos uma empresa de soluções rápidas. Somos parceiros tecnológicos de longo prazo, comprometidos com a evolução técnica e operacional dos setores em que atuamos.</p>
+    </div>
+  </div>
+</section>
+
+<!-- MISSÃO VISÃO VALORES -->
+<section class="section" style="background:var(--gf-dark);border-top:1px solid var(--gf-border-dim);border-bottom:1px solid var(--gf-border-dim);">
+  <div class="container">
+    <div class="section-header anim-fade">
+      <div class="section-header__label">
+        <span class="label">Identidade Corporativa</span>
+      </div>
+      <h2>Missão, Visão e Valores</h2>
+    </div>
+
+    <div class="mvv-grid">
+      <div class="mvv-card anim-fade">
+        <div class="mvv-card__label">Missão</div>
+        <h3>O que fazemos</h3>
+        <p>Desenvolver equipamentos, componentes e soluções industriais sob medida para os setores alimentício, farmacêutico e biotecnológico, utilizando engenharia aplicada, tecnologia e desenvolvimento técnico para garantir eficiência, segurança e confiabilidade operacional.</p>
+      </div>
+      <div class="mvv-card anim-fade anim-delay-1">
+        <div class="mvv-card__label">Visão</div>
+        <h3>Para onde vamos</h3>
+        <p>Ser referência em soluções industriais e desenvolvimento tecnológico aplicado, reconhecida pela capacidade técnica, inovação e compromisso com a evolução dos processos industriais.</p>
+      </div>
+      <div class="mvv-card anim-fade anim-delay-2">
+        <div class="mvv-card__label">Propósito</div>
+        <h3>Por que existimos</h3>
+        <p>Transformar a forma como as indústrias alimentícia, farmacêutica e biotecnológica desenvolvem e operam seus processos — através de automação, engenharia aplicada e desenvolvimento industrial contínuo.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VALORES -->
+<section class="section" style="background:var(--gf-black);">
+  <div class="container">
+    <div class="section-header anim-fade">
+      <div class="section-header__label">
+        <span class="label">Valores</span>
+      </div>
+      <h2>O que nos guia</h2>
+    </div>
+    <div class="valores-list">
+      <div class="valor-item anim-fade"><div class="valor-dot"></div><span>Inovação Aplicada</span></div>
+      <div class="valor-item anim-fade anim-delay-1"><div class="valor-dot"></div><span>Engenharia</span></div>
+      <div class="valor-item anim-fade anim-delay-2"><div class="valor-dot"></div><span>Tecnologia</span></div>
+      <div class="valor-item anim-fade anim-delay-3"><div class="valor-dot"></div><span>Qualidade</span></div>
+      <div class="valor-item anim-fade"><div class="valor-dot"></div><span>Precisão Técnica</span></div>
+      <div class="valor-item anim-fade anim-delay-1"><div class="valor-dot"></div><span>Responsabilidade</span></div>
+      <div class="valor-item anim-fade anim-delay-2"><div class="valor-dot"></div><span>Ética</span></div>
+      <div class="valor-item anim-fade anim-delay-3"><div class="valor-dot"></div><span>Transparência</span></div>
+      <div class="valor-item anim-fade"><div class="valor-dot"></div><span>Proximidade com o Cliente</span></div>
+      <div class="valor-item anim-fade anim-delay-1"><div class="valor-dot"></div><span>Desenvolvimento Contínuo</span></div>
+      <div class="valor-item anim-fade anim-delay-2"><div class="valor-dot"></div><span>Confiança de Longo Prazo</span></div>
+      <div class="valor-item anim-fade anim-delay-3"><div class="valor-dot"></div><span>Excelência Operacional</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="section--sm" style="background:var(--gf-dark);border-top:1px solid var(--gf-border-dim);">
+  <div class="container" style="text-align:center;">
+    <span class="label" style="display:block;margin-bottom:20px;">Próximo Passo</span>
+    <h2 style="font-size:clamp(1.6rem,3vw,2.2rem);margin-bottom:28px;">Tem um projeto industrial?<br>Vamos conversar.</h2>
+    <div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap;">
+      <a href="contato.html" class="btn btn--primary">Entrar em Contato</a>
+      <a href="engenharia.html" class="btn btn--outline">Ver Soluções</a>
+    </div>
+  </div>
+</section>
+
+<div id="footer-container"></div>
+<div id="wa-float"></div>
+<script src="js/components.js"></script>
+<script src="js/main.js"></script>
 </body>
 </html>
