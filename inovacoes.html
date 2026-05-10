@@ -49,52 +49,61 @@
       gap: 0;
       background: var(--gf-black);
       border-bottom: 1px solid var(--gf-border-dim);
-      align-items: stretch;
+      /* Altura fixa garante que todos os produtos tenham
+         a mesma proporção visual, sem imagem estourando */
+      min-height: 480px;
+      max-height: 520px;
     }
     .panel-hero__img {
-      background: #000000;
+      background: #f2f4f0;
       display: flex;
       align-items: center;
       justify-content: center;
       overflow: hidden;
-      padding: 40px 32px;
-      /* Fixed height so image side doesn't stretch with text */
-      min-height: 420px;
-      max-height: 560px;
-      position: sticky;
-      top: calc(var(--gf-nav-h) + 60px);
-      align-self: start;
+      /* Ocupa exatamente a altura do panel */
+      height: 100%;
+      min-height: 480px;
+      max-height: 520px;
+      box-sizing: border-box;
     }
     .panel-hero__img img {
+      /* contain: mostra o produto inteiro sem cortar
+         padding: respiro visual dentro do quadro branco */
       width: 100%;
-      max-height: 440px;
+      height: 100%;
       object-fit: contain;
+      padding: 40px;
       display: block;
+      box-sizing: border-box;
     }
     .panel-hero__text {
-      padding: 56px 52px;
+      padding: 48px 48px 48px 52px;
       display: flex;
       flex-direction: column;
       justify-content: flex-start;
       overflow-y: auto;
+      height: 100%;
+      min-height: 480px;
+      max-height: 520px;
+      box-sizing: border-box;
     }
-    .panel-hero__text .tag { margin-bottom: 16px; }
-    .panel-hero__text h2 { font-size: clamp(1.8rem, 3vw, 2.6rem); margin-bottom: 20px; }
+    .panel-hero__text .tag { margin-bottom: 12px; }
+    .panel-hero__text h2 { font-size: clamp(1.6rem, 2.5vw, 2.2rem); margin-bottom: 14px; }
     .panel-hero__text .lead {
-      font-size: 1rem;
+      font-size: 0.94rem;
       color: var(--gf-text-mid);
-      line-height: 1.88;
+      line-height: 1.7;
       font-weight: 300;
-      margin-bottom: 20px;
-      padding-bottom: 20px;
+      margin-bottom: 14px;
+      padding-bottom: 14px;
       border-bottom: 1px solid var(--gf-border-dim);
     }
     .panel-hero__text p {
-      font-size: 0.88rem;
+      font-size: 0.85rem;
       color: var(--gf-text-dim);
-      line-height: 1.9;
+      line-height: 1.72;
       font-weight: 300;
-      margin-bottom: 12px;
+      margin-bottom: 8px;
     }
 
     /* ── Gallery strip ──────────────────────────────────────────── */
@@ -110,13 +119,16 @@
     .gallery-item {
       border-radius: var(--gf-radius-lg);
       overflow: hidden;
-      background: #000000;
+      background: #f2f4f0;
       aspect-ratio: 4/3;
+      /* Ensures no overflow */
+      max-width: 100%;
     }
     .gallery-item img {
       width: 100%; height: 100%;
       object-fit: contain;
-      padding: 12px;
+      padding: 16px;
+      box-sizing: border-box;
       transition: transform 0.5s var(--gf-ease);
     }
     .gallery-item:hover img { transform: scale(1.04); }
@@ -197,9 +209,9 @@
     }
 
     @media(max-width:1024px){
-      .panel-hero { grid-template-columns: 1fr; min-height: auto; }
-      .panel-hero__img { min-height: 280px; }
-      .panel-hero__text { padding: 40px 28px; }
+      .panel-hero { grid-template-columns: 1fr; min-height: auto; max-height: none; }
+      .panel-hero__img { min-height: 300px; max-height: 360px; height: 320px; }
+      .panel-hero__text { padding: 36px 28px; min-height: auto; max-height: none; height: auto; }
       .gallery-strip--3 { grid-template-columns: 1fr 1fr; }
       .gallery-strip--4 { grid-template-columns: 1fr 1fr; }
     }
@@ -471,8 +483,8 @@
       </div>
 
       <!-- Imagem 2 em destaque -->
-      <div style="border-radius:var(--gf-radius-lg);overflow:hidden;background:#f0f2ee;margin-bottom:16px;padding:32px;display:flex;align-items:center;justify-content:center;min-height:440px;">
-        <img src="images/biorreator-2.png" alt="Biorreator Industrial GREENFARMS" style="max-height:400px;object-fit:contain;" loading="lazy">
+      <div style="border-radius:var(--gf-radius-lg);overflow:hidden;background:#f2f4f0;margin-bottom:16px;display:flex;align-items:center;justify-content:center;height:380px;">
+        <img src="images/biorreator-2.png" alt="Biorreator Industrial GREENFARMS" style="width:100%;height:100%;object-fit:contain;padding:32px;box-sizing:border-box;" loading="lazy">
       </div>
 
       <!-- Fábricas em grid -->
