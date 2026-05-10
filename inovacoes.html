@@ -8,7 +8,7 @@
   <link rel="icon" type="image/png" href="images/favicon.png">
   <link rel="stylesheet" href="css/style.css">
   <style>
-    /* ── Tabs ───────────────────────────────────────────────────── */
+    /* ── Tabs ── */
     .tabs-bar {
       background: var(--gf-dark);
       border-bottom: 1px solid var(--gf-border-dim);
@@ -22,11 +22,10 @@
       scrollbar-width: none;
     }
     .tabs-bar__inner::-webkit-scrollbar { display: none; }
-
     .tab-btn {
-      padding: 18px 28px;
+      padding: 16px 24px;
       font-family: var(--gf-mono);
-      font-size: 0.65rem;
+      font-size: 0.64rem;
       letter-spacing: 0.16em;
       text-transform: uppercase;
       color: var(--gf-text-dim);
@@ -42,55 +41,79 @@
     .tab-panel { display: none; }
     .tab-panel.active { display: block; }
 
-    /* ── Panel layout ───────────────────────────────────────────── */
+    /* ════════════════════════════════════════════════════
+       PANEL HERO — layout principal de cada inovação
+       Fundo ESCURO, imagem padronizada, sem overflow
+    ════════════════════════════════════════════════════ */
     .panel-hero {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 0;
-      background: var(--gf-black);
+      background: var(--gf-dark-2);   /* fundo escuro — não branco */
       border-bottom: 1px solid var(--gf-border-dim);
-      /* Altura fixa garante que todos os produtos tenham
-         a mesma proporção visual, sem imagem estourando */
-      min-height: 480px;
-      max-height: 520px;
     }
+
+    /* Container da imagem — escuro, padronizado */
     .panel-hero__img {
-      background: #f2f4f0;
+      /* Altura fixa igual para todos os 6 produtos */
+      height: 480px;
+      /* Fundo escuro com leve gradiente — sem fundo branco */
+      background: linear-gradient(135deg, #1a1f1a 0%, #141814 100%);
+      border-right: 1px solid var(--gf-border-dim);
       display: flex;
       align-items: center;
       justify-content: center;
       overflow: hidden;
-      /* Ocupa exatamente a altura do panel */
-      height: 100%;
-      min-height: 480px;
-      max-height: 520px;
-      box-sizing: border-box;
+      position: relative;
     }
+
+    /* Grade decorativa no fundo da imagem */
+    .panel-hero__img::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(106,158,100,0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(106,158,100,0.05) 1px, transparent 1px);
+      background-size: 40px 40px;
+      pointer-events: none;
+      z-index: 0;
+    }
+
     .panel-hero__img img {
-      /* contain: mostra o produto inteiro sem cortar
-         padding: respiro visual dentro do quadro branco */
-      width: 100%;
-      height: 100%;
+      position: relative;
+      z-index: 1;
+      width: 90%;
+      height: 90%;
       object-fit: contain;
-      padding: 40px;
       display: block;
-      box-sizing: border-box;
+      /* Sombra suave para destacar o produto do fundo */
+      filter: drop-shadow(0 8px 32px rgba(0,0,0,0.4));
     }
+
+    /* Container do texto */
     .panel-hero__text {
-      padding: 48px 48px 48px 52px;
+      height: 480px;
+      padding: 40px 44px;
       display: flex;
       flex-direction: column;
       justify-content: flex-start;
       overflow-y: auto;
-      height: 100%;
-      min-height: 480px;
-      max-height: 520px;
-      box-sizing: border-box;
+      /* Scrollbar customizada */
+      scrollbar-width: thin;
+      scrollbar-color: var(--gf-wire) transparent;
     }
+    .panel-hero__text::-webkit-scrollbar { width: 4px; }
+    .panel-hero__text::-webkit-scrollbar-track { background: transparent; }
+    .panel-hero__text::-webkit-scrollbar-thumb { background: var(--gf-wire); border-radius: 2px; }
+
     .panel-hero__text .tag { margin-bottom: 12px; }
-    .panel-hero__text h2 { font-size: clamp(1.6rem, 2.5vw, 2.2rem); margin-bottom: 14px; }
+    .panel-hero__text h2 {
+      font-size: clamp(1.5rem, 2.2vw, 2.1rem);
+      margin-bottom: 14px;
+      line-height: 1.1;
+    }
     .panel-hero__text .lead {
-      font-size: 0.94rem;
+      font-size: 0.93rem;
       color: var(--gf-text-mid);
       line-height: 1.7;
       font-weight: 300;
@@ -99,18 +122,18 @@
       border-bottom: 1px solid var(--gf-border-dim);
     }
     .panel-hero__text p {
-      font-size: 0.85rem;
+      font-size: 0.84rem;
       color: var(--gf-text-dim);
-      line-height: 1.72;
+      line-height: 1.7;
       font-weight: 300;
       margin-bottom: 8px;
     }
 
-    /* ── Gallery strip ──────────────────────────────────────────── */
+    /* ── Gallery strip ── */
     .gallery-strip {
       display: grid;
-      gap: 16px;
-      margin-top: 16px;
+      gap: 12px;
+      margin-top: 12px;
     }
     .gallery-strip--2 { grid-template-columns: 1fr 1fr; }
     .gallery-strip--3 { grid-template-columns: 1fr 1fr 1fr; }
@@ -119,111 +142,116 @@
     .gallery-item {
       border-radius: var(--gf-radius-lg);
       overflow: hidden;
-      background: #f2f4f0;
+      /* Fundo escuro também nas galerias */
+      background: linear-gradient(135deg, #1a1f1a 0%, #141814 100%);
       aspect-ratio: 4/3;
-      /* Ensures no overflow */
-      max-width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+    .gallery-item::before {
+      content: '';
+      position: absolute; inset: 0;
+      background-image:
+        linear-gradient(rgba(106,158,100,0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(106,158,100,0.04) 1px, transparent 1px);
+      background-size: 32px 32px;
+      pointer-events: none;
     }
     .gallery-item img {
-      width: 100%; height: 100%;
+      position: relative; z-index: 1;
+      width: 85%; height: 85%;
       object-fit: contain;
-      padding: 16px;
-      box-sizing: border-box;
+      filter: drop-shadow(0 4px 16px rgba(0,0,0,0.35));
       transition: transform 0.5s var(--gf-ease);
     }
-    .gallery-item:hover img { transform: scale(1.04); }
+    .gallery-item:hover img { transform: scale(1.05); }
 
-    /* ── Specs box ──────────────────────────────────────────────── */
+    /* ── Specs box ── */
     .specs-box {
       background: var(--gf-dark-3);
       border: 1px solid var(--gf-border-dim);
       border-radius: var(--gf-radius-lg);
-      padding: 28px 32px;
-      margin-top: 28px;
+      padding: 20px 24px;
+      margin-top: 16px;
     }
     .specs-box h4 {
-      font-family: var(--gf-mono);
-      font-size: 0.63rem;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-      color: var(--gf-text-dim);
-      margin-bottom: 16px;
+      font-family: var(--gf-mono); font-size: 0.62rem;
+      letter-spacing: 0.16em; text-transform: uppercase;
+      color: var(--gf-text-dim); margin-bottom: 12px;
     }
-    .specs-box ul { display: flex; flex-direction: column; gap: 10px; }
+    .specs-box ul { display: flex; flex-direction: column; gap: 8px; }
     .specs-box li {
       display: flex; align-items: flex-start; gap: 10px;
-      font-size: 0.85rem; color: var(--gf-text-mid); font-weight: 300; line-height: 1.5;
+      font-size: 0.83rem; color: var(--gf-text-mid); font-weight: 300; line-height: 1.45;
     }
     .specs-box li::before {
       content: '—'; color: var(--gf-green-light);
       font-family: var(--gf-mono); flex-shrink: 0;
     }
 
-    /* ── Highlight quote ────────────────────────────────────────── */
+    /* ── Highlight ── */
     .highlight {
       background: rgba(61,92,58,0.08);
       border-left: 3px solid var(--gf-green-light);
       border-radius: 0 var(--gf-radius) var(--gf-radius) 0;
-      padding: 18px 22px;
-      margin: 20px 0;
+      padding: 14px 18px;
+      margin: 12px 0;
     }
     .highlight p {
       color: var(--gf-text-mid) !important;
-      font-size: 0.92rem !important;
+      font-size: 0.88rem !important;
       margin: 0 !important;
       font-style: italic;
-      line-height: 1.75 !important;
+      line-height: 1.65 !important;
     }
 
-    /* ── Tech detail ────────────────────────────────────────────── */
+    /* ── Tech nums ── */
     .tech-nums {
-      display: grid;
-      grid-template-columns: repeat(2,1fr);
-      gap: 16px;
-      margin-top: 24px;
+      display: grid; grid-template-columns: repeat(2,1fr);
+      gap: 12px; margin-top: 16px;
     }
     .tech-num {
-      background: var(--gf-dark-3);
-      border: 1px solid var(--gf-border-dim);
-      border-radius: var(--gf-radius);
-      padding: 18px 20px;
+      background: var(--gf-dark-3); border: 1px solid var(--gf-border-dim);
+      border-radius: var(--gf-radius); padding: 16px 18px;
     }
     .tech-num strong {
-      display: block;
-      font-family: var(--gf-head);
-      font-size: 1.6rem; font-weight: 700;
-      color: var(--gf-accent); line-height: 1; margin-bottom: 6px;
+      display: block; font-family: var(--gf-head);
+      font-size: 1.5rem; font-weight: 700;
+      color: var(--gf-accent); line-height: 1; margin-bottom: 5px;
     }
-    .tech-num span { font-size: 0.78rem; color: var(--gf-text-dim); }
+    .tech-num span { font-size: 0.76rem; color: var(--gf-text-dim); }
 
-    /* ── Panel content area ─────────────────────────────────────── */
+    /* ── Panel content area ── */
     .panel-content {
       background: var(--gf-dark);
-      padding: 64px 0;
+      padding: 52px 0;
     }
+    .panel-actions { margin-top: 20px; display: flex; gap: 12px; flex-wrap: wrap; }
 
-    /* ── Panel actions ──────────────────────────────────────────── */
-    .panel-actions {
-      margin-top: 32px;
-      display: flex; gap: 14px; flex-wrap: wrap;
-    }
-
+    /* ── Responsive ── */
     @media(max-width:1024px){
-      .panel-hero { grid-template-columns: 1fr; min-height: auto; max-height: none; }
-      .panel-hero__img { min-height: 300px; max-height: 360px; height: 320px; }
-      .panel-hero__text { padding: 36px 28px; min-height: auto; max-height: none; height: auto; }
+      .panel-hero { grid-template-columns: 1fr; }
+      .panel-hero__img {
+        height: 300px;
+        border-right: none;
+        border-bottom: 1px solid var(--gf-border-dim);
+      }
+      .panel-hero__text { height: auto; padding: 32px 24px; }
       .gallery-strip--3 { grid-template-columns: 1fr 1fr; }
       .gallery-strip--4 { grid-template-columns: 1fr 1fr; }
     }
     @media(max-width:768px){
-      .panel-hero__text { padding: 28px 20px; }
+      .panel-hero__img { height: 240px; }
+      .panel-hero__text { padding: 24px 16px; }
       .gallery-strip--2, .gallery-strip--3, .gallery-strip--4 { grid-template-columns: 1fr; }
       .tech-nums { grid-template-columns: 1fr; }
       .tabs-bar__inner { padding: 0 4px; }
-      .tab-btn { padding: 16px 18px; font-size: 0.6rem; }
+      .tab-btn { padding: 14px 16px; font-size: 0.59rem; }
     }
   </style>
-</head>
+</head></head>
 <body>
 
 <div id="nav-container"></div>
@@ -483,8 +511,8 @@
       </div>
 
       <!-- Imagem 2 em destaque -->
-      <div style="border-radius:var(--gf-radius-lg);overflow:hidden;background:#f2f4f0;margin-bottom:16px;display:flex;align-items:center;justify-content:center;height:380px;">
-        <img src="images/biorreator-2.png" alt="Biorreator Industrial GREENFARMS" style="width:100%;height:100%;object-fit:contain;padding:32px;box-sizing:border-box;" loading="lazy">
+      <div style="border-radius:var(--gf-radius-lg);overflow:hidden;background:linear-gradient(135deg,#1a1f1a,#141814);margin-bottom:16px;display:flex;align-items:center;justify-content:center;height:400px;position:relative;">
+        <img src="images/biorreator-2.png" alt="Biorreator Industrial GREENFARMS" style="width:85%;height:85%;object-fit:contain;filter:drop-shadow(0 8px 32px rgba(0,0,0,0.4));position:relative;z-index:1;" loading="lazy">
       </div>
 
       <!-- Fábricas em grid -->
