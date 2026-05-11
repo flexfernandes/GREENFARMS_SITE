@@ -50,15 +50,6 @@
       grid-template-columns: 1fr 1fr;
       background: var(--gf-dark-2);   /* fundo escuro — não branco */
       border-bottom: 1px solid var(--gf-border-dim);
-
-      /* AJUSTE: centraliza o bloco e cria margem lateral no desktop */
-      width: min(100% - 80px, 1360px);
-      max-width: 1360px;
-      margin-left: auto;
-      margin-right: auto;
-      box-sizing: border-box;
-      border-left: 1px solid var(--gf-border-dim);
-      border-right: 1px solid var(--gf-border-dim);
     }
 
     /* Container da imagem — escuro, padronizado */
@@ -239,46 +230,9 @@
     }
     .panel-actions { margin-top: 20px; display: flex; gap: 12px; flex-wrap: wrap; }
 
-    /* ════════════════════════════════════════════════════
-       AJUSTE DE CENTRALIZAÇÃO GERAL DA PÁGINA
-       Mantém cores, links, estilos externos e estrutura original
-    ════════════════════════════════════════════════════ */
-    html,
-    body {
-      max-width: 100%;
-      overflow-x: hidden;
-    }
-
-    .page-hero .container,
-    .tabs-bar .container,
-    .panel-content > .container,
-    .section--sm > .container {
-      width: min(100% - 80px, 1360px);
-      max-width: 1360px;
-      margin-left: auto;
-      margin-right: auto;
-      box-sizing: border-box;
-    }
-
-    .tab-panel {
-      width: 100%;
-      max-width: 100%;
-      overflow-x: hidden;
-    }
-
     /* ── Responsive ── */
     @media(max-width:1024px){
-      .panel-hero {
-        grid-template-columns: 1fr;
-        width: min(100% - 40px, 1360px);
-      }
-
-      .page-hero .container,
-      .tabs-bar .container,
-      .panel-content > .container,
-      .section--sm > .container {
-        width: min(100% - 40px, 1360px);
-      }
+      .panel-hero { grid-template-columns: 1fr; }
       .panel-hero__img {
         height: 300px;
         border-right: none;
@@ -289,17 +243,6 @@
       .gallery-strip--4 { grid-template-columns: 1fr 1fr; }
     }
     @media(max-width:768px){
-      .panel-hero {
-        width: calc(100% - 24px);
-      }
-
-      .page-hero .container,
-      .tabs-bar .container,
-      .panel-content > .container,
-      .section--sm > .container {
-        width: calc(100% - 24px);
-      }
-
       .panel-hero__img { height: 240px; }
       .panel-hero__text { padding: 24px 16px; }
       .gallery-strip--2, .gallery-strip--3, .gallery-strip--4 { grid-template-columns: 1fr; }
@@ -308,7 +251,7 @@
       .tab-btn { padding: 14px 16px; font-size: 0.59rem; }
     }
   </style>
-</head>
+</head></head>
 <body>
 
 <div id="nav-container"></div>
