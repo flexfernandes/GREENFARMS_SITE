@@ -32,7 +32,7 @@ async function handleContato(request, env) {
       },
       body: JSON.stringify({
         from: 'GreenFarms Site <contato@greenfarms.com.br>',
-        to: ['flexfernandes@gmail.com'],
+        to: ['contato@greenfarms.com.br'],
         reply_to: email,
         subject: `Contato pelo site — ${esc(nome)}`,
         html: `
