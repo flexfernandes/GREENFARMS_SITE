@@ -1,7 +1,7 @@
 /* ================================================================
    GREENFARMS v2 — Global Stylesheet
    Aesthetic: Industrial Precision · Dark Shell · Light Image Panels
-   ================================================================ */
+   ================================================================  */
 
 @import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&family=DM+Mono:wght@300;400;500&display=swap');
 
@@ -68,9 +68,9 @@ h1, h2, h3, h4, h5, h6 {
 /* ── Layout ─────────────────────────────────────────────────────── */
 .container { width: 100%; max-width: 1200px; margin: 0 auto; padding: 0 36px; }
 .container--wide { max-width: 1440px; }
-.section { padding: 104px 0; }
+.section { padding: 20px 0; }
 .section--sm { padding: 64px 0; }
-.section--lg { padding: 148px 0; }
+.section--lg { padding: 28px 0; }
 
 /* ── Navigation ─────────────────────────────────────────────────── */
 .nav {
