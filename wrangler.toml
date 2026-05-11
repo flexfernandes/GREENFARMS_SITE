@@ -1,0 +1,9 @@
+name = "greenfarms"
+compatibility_date = "2024-12-01"
+compatibility_flags = ["nodejs_compat"]
+main = "src/index.js"
+
+[assets]
+directory = "./"
+binding = "ASSETS"
+not_found_handling = "404-page"
