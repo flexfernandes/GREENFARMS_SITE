@@ -15,16 +15,6 @@ async function handleContato(request, env) {
     const data = await request.json();
     const { _subject, ...fields } = data;
 
-    // DEBUG TEMPORÁRIO
-    const k = env.RESEND_API_KEY;
-    console.log('DEBUG_KEY_EXISTS:', !!k);
-    console.log('DEBUG_KEY_TYPE:', typeof k);
-    console.log('DEBUG_KEY_LENGTH:', k?.length);
-    console.log('DEBUG_KEY_PREFIX:', k?.substring(0, 7));
-    console.log('DEBUG_KEY_LAST4:', k?.slice(-4));
-    console.log('DEBUG_KEY_HAS_SPACES:', k?.includes(' '));
-    console.log('DEBUG_KEY_HAS_NEWLINE:', k?.includes('\n'));
-
     // Validação básica
     if (!fields.Nome || !fields.Email) {
       return jsonResponse({ error: 'Nome e e-mail são obrigatórios.' }, 400);
